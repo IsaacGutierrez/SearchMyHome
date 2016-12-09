@@ -1,3 +1,3 @@
 ##SearchMyHome
 
-Proyecto de grado 
+Este proyecto sirve como catalogo online de inmuebles.

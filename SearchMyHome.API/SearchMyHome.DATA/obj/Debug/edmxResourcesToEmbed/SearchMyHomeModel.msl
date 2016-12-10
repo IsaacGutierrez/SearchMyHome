@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SearchMyHomeDBModelStoreContainer" CdmEntityContainer="SearchMyHomeDBEntities">
+    <EntitySetMapping Name="AgentesInmobiliarios">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.AgentesInmobiliarios">
+        <MappingFragment StoreEntitySet="AgentesInmobiliarios">
+          <ScalarProperty Name="agenteInmobiliarioId" ColumnName="agenteInmobiliarioId" />
+          <ScalarProperty Name="nombres" ColumnName="nombres" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnuncioPublicitario">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.AnuncioPublicitario">
+        <MappingFragment StoreEntitySet="AnuncioPublicitario">
+          <ScalarProperty Name="anuncioPublicitarioId" ColumnName="anuncioPublicitarioId" />
+          <ScalarProperty Name="tituloAnuncio" ColumnName="tituloAnuncio" />
+          <ScalarProperty Name="servicioInmobiliarioId" ColumnName="servicioInmobiliarioId" />
+          <ScalarProperty Name="suscriptorId" ColumnName="suscriptorId" />
+          <ScalarProperty Name="fechaPublicacion" ColumnName="fechaPublicacion" />
+          <ScalarProperty Name="fechaExpiracion" ColumnName="fechaExpiracion" />
+          <ScalarProperty Name="inmuebleId" ColumnName="inmuebleId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="estadoAnuncioId" ColumnName="estadoAnuncioId" />
+          <ScalarProperty Name="numeroVisitantes" ColumnName="numeroVisitantes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.Clientes">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="clienteId" ColumnName="clienteId" />
+          <ScalarProperty Name="nombres" ColumnName="nombres" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="inmobiliariaId" ColumnName="inmobiliariaId" />
+          <ScalarProperty Name="documentoIdentidad" ColumnName="documentoIdentidad" />
+          <ScalarProperty Name="numeroTelefonico" ColumnName="numeroTelefonico" />
+          <ScalarProperty Name="numeroMovil" ColumnName="numeroMovil" />
+          <ScalarProperty Name="direccionId" ColumnName="direccionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Componentes">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.Componentes">
+        <MappingFragment StoreEntitySet="Componentes">
+          <ScalarProperty Name="componenteId" ColumnName="componenteId" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Direcciones">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.Direcciones">
+        <MappingFragment StoreEntitySet="Direcciones">
+          <ScalarProperty Name="direccionId" ColumnName="direccionId" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="numeroPropiedad" ColumnName="numeroPropiedad" />
+          <ScalarProperty Name="geoLatitud" ColumnName="geoLatitud" />
+          <ScalarProperty Name="geoLongitud" ColumnName="geoLongitud" />
+          <ScalarProperty Name="localidadId" ColumnName="localidadId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstadoAnuncioPublicitario">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.EstadoAnuncioPublicitario">
+        <MappingFragment StoreEntitySet="EstadoAnuncioPublicitario">
+          <ScalarProperty Name="estadoAnuncioPublicitarioId" ColumnName="estadoAnuncioPublicitarioId" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstadoInmuebles">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.EstadoInmuebles">
+        <MappingFragment StoreEntitySet="EstadoInmuebles">
+          <ScalarProperty Name="estadoInmuebleId" ColumnName="estadoInmuebleId" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstadoSuscripcion">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.EstadoSuscripcion">
+        <MappingFragment StoreEntitySet="EstadoSuscripcion">
+          <ScalarProperty Name="estadoSuscripcionId" ColumnName="estadoSuscripcionId" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inmobiliarias">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.Inmobiliarias">
+        <MappingFragment StoreEntitySet="Inmobiliarias">
+          <ScalarProperty Name="inmobiliariaId" ColumnName="inmobiliariaId" />
+          <ScalarProperty Name="suscriptorId" ColumnName="suscriptorId" />
+          <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+          <ScalarProperty Name="numeroTelefonico" ColumnName="numeroTelefonico" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InmuebleComponente">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.InmuebleComponente">
+        <MappingFragment StoreEntitySet="InmuebleComponente">
+          <ScalarProperty Name="inmuebleComponenteId" ColumnName="inmuebleComponenteId" />
+          <ScalarProperty Name="componenteId" ColumnName="componenteId" />
+          <ScalarProperty Name="inmuebleId" ColumnName="inmuebleId" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inmuebles">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.Inmuebles">
+        <MappingFragment StoreEntitySet="Inmuebles">
+          <ScalarProperty Name="inmuebleId" ColumnName="inmuebleId" />
+          <ScalarProperty Name="codigoNFC" ColumnName="codigoNFC" />
+          <ScalarProperty Name="codigoQR" ColumnName="codigoQR" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="suscriptorId" ColumnName="suscriptorId" />
+          <ScalarProperty Name="tipoInmuebleId" ColumnName="tipoInmuebleId" />
+          <ScalarProperty Name="estadoInmuebleId" ColumnName="estadoInmuebleId" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="direccionId" ColumnName="direccionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InmuebleServicios">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.InmuebleServicios">
+        <MappingFragment StoreEntitySet="InmuebleServicios">
+          <ScalarProperty Name="inmuebleServicioId" ColumnName="inmuebleServicioId" />
+          <ScalarProperty Name="inmuebleId" ColumnName="inmuebleId" />
+          <ScalarProperty Name="servicioId" ColumnName="servicioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Localidad">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.Localidad">
+        <MappingFragment StoreEntitySet="Localidad">
+          <ScalarProperty Name="localidadId" ColumnName="localidadId" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="geoLongitud" ColumnName="geoLongitud" />
+          <ScalarProperty Name="geoLatitud" ColumnName="geoLatitud" />
+          <ScalarProperty Name="municipioId" ColumnName="municipioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Multimedia">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.Multimedia">
+        <MappingFragment StoreEntitySet="Multimedia">
+          <ScalarProperty Name="multimediaId" ColumnName="multimediaId" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="tipoMultimediaId" ColumnName="tipoMultimediaId" />
+          <ScalarProperty Name="inmuebleId" ColumnName="inmuebleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Municipios">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.Municipios">
+        <MappingFragment StoreEntitySet="Municipios">
+          <ScalarProperty Name="municipioId" ColumnName="municipioId" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="geoLongitud" ColumnName="geoLongitud" />
+          <ScalarProperty Name="geoLatitud" ColumnName="geoLatitud" />
+          <ScalarProperty Name="provinciaId" ColumnName="provinciaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Periodos">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.Periodos">
+        <MappingFragment StoreEntitySet="Periodos">
+          <ScalarProperty Name="periodoId" ColumnName="periodoId" />
+          <ScalarProperty Name="periodo" ColumnName="periodo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provincias">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.Provincias">
+        <MappingFragment StoreEntitySet="Provincias">
+          <ScalarProperty Name="provinciaId" ColumnName="provinciaId" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="geoLongitud" ColumnName="geoLongitud" />
+          <ScalarProperty Name="geoLatitud" ColumnName="geoLatitud" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reunion">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.Reunion">
+        <MappingFragment StoreEntitySet="Reunion">
+          <ScalarProperty Name="reunionId" ColumnName="reunionId" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="fechaTermino" ColumnName="fechaTermino" />
+          <ScalarProperty Name="duracion" ColumnName="duracion" />
+          <ScalarProperty Name="suscriptorSolicitanteId" ColumnName="suscriptorSolicitanteId" />
+          <ScalarProperty Name="suscriptorEncargadoId" ColumnName="suscriptorEncargadoId" />
+          <ScalarProperty Name="estadoReunionId" ColumnName="estadoReunionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Servicios">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.Servicios">
+        <MappingFragment StoreEntitySet="Servicios">
+          <ScalarProperty Name="servicioId" ColumnName="servicioId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="nombreProveedor" ColumnName="nombreProveedor" />
+          <ScalarProperty Name="tipoServicioId" ColumnName="tipoServicioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiciosInmobiliarios">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.ServiciosInmobiliarios">
+        <MappingFragment StoreEntitySet="ServiciosInmobiliarios">
+          <ScalarProperty Name="servicoInmobiliarioId" ColumnName="servicoInmobiliarioId" />
+          <ScalarProperty Name="servicioInmobiliario" ColumnName="servicioInmobiliario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sucursales">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.Sucursales">
+        <MappingFragment StoreEntitySet="Sucursales">
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="direccionId" ColumnName="direccionId" />
+          <ScalarProperty Name="numeroTelefonico" ColumnName="numeroTelefonico" />
+          <ScalarProperty Name="inmobiliarioId" ColumnName="inmobiliarioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suscriptor">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.Suscriptor">
+        <MappingFragment StoreEntitySet="Suscriptor">
+          <ScalarProperty Name="suscriptorId" ColumnName="suscriptorId" />
+          <ScalarProperty Name="nombres" ColumnName="nombres" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="nombreUsuario" ColumnName="nombreUsuario" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="salt" ColumnName="salt" />
+          <ScalarProperty Name="direccionId" ColumnName="direccionId" />
+          <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+          <ScalarProperty Name="numeroTelefonico" ColumnName="numeroTelefonico" />
+          <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+          <ScalarProperty Name="tipoSuscripcionId" ColumnName="tipoSuscripcionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoInmuebleComponentes">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.TipoInmuebleComponentes">
+        <MappingFragment StoreEntitySet="TipoInmuebleComponentes">
+          <ScalarProperty Name="tipoInmuebleComponenteId" ColumnName="tipoInmuebleComponenteId" />
+          <ScalarProperty Name="tipoInmuebleId" ColumnName="tipoInmuebleId" />
+          <ScalarProperty Name="componenteId" ColumnName="componenteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoInmuebles">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.TipoInmuebles">
+        <MappingFragment StoreEntitySet="TipoInmuebles">
+          <ScalarProperty Name="tipoInmuebleId" ColumnName="tipoInmuebleId" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoMultimedia">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.TipoMultimedia">
+        <MappingFragment StoreEntitySet="TipoMultimedia">
+          <ScalarProperty Name="tipoMultimediaId" ColumnName="tipoMultimediaId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoServicios">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.TipoServicios">
+        <MappingFragment StoreEntitySet="TipoServicios">
+          <ScalarProperty Name="tipoServicioId" ColumnName="tipoServicioId" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoSuscripcion">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.TipoSuscripcion">
+        <MappingFragment StoreEntitySet="TipoSuscripcion">
+          <ScalarProperty Name="tipoSuscripcionId" ColumnName="tipoSuscripcionId" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="periodoId" ColumnName="periodoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoSuscripcionSuscriptor">
+      <EntityTypeMapping TypeName="SearchMyHomeDBModel.TipoSuscripcionSuscriptor">
+        <MappingFragment StoreEntitySet="TipoSuscripcionSuscriptor">
+          <ScalarProperty Name="tipoSuscripcionSuscriptorId" ColumnName="tipoSuscripcionSuscriptorId" />
+          <ScalarProperty Name="suscriptorId" ColumnName="suscriptorId" />
+          <ScalarProperty Name="tipoSuscripcionId" ColumnName="tipoSuscripcionId" />
+          <ScalarProperty Name="fechaCompra" ColumnName="fechaCompra" />
+          <ScalarProperty Name="fechaExperacion" ColumnName="fechaExperacion" />
+          <ScalarProperty Name="estadoSuscripcionId" ColumnName="estadoSuscripcionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

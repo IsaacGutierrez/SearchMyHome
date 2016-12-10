@@ -1,0 +1,926 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SearchMyHomeDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AgentesInmobiliarios">
+    <Key>
+      <PropertyRef Name="agenteInmobiliarioId" />
+    </Key>
+    <Property Name="agenteInmobiliarioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="sucursalId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Sucursales" Relationship="Self.FK_AgentesInmobiliarios_Sucursales" FromRole="AgentesInmobiliarios" ToRole="Sucursales" />
+  </EntityType>
+  <EntityType Name="AnuncioPublicitario">
+    <Key>
+      <PropertyRef Name="anuncioPublicitarioId" />
+    </Key>
+    <Property Name="anuncioPublicitarioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tituloAnuncio" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="servicioInmobiliarioId" Type="Int32" Nullable="false" />
+    <Property Name="suscriptorId" Type="Int32" Nullable="false" />
+    <Property Name="fechaPublicacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fechaExpiracion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="inmuebleId" Type="Int32" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="estadoAnuncioId" Type="Int32" Nullable="false" />
+    <Property Name="numeroVisitantes" Type="Int32" />
+    <NavigationProperty Name="EstadoAnuncioPublicitario" Relationship="Self.FK_AnuncioPublicitario_EstadoAnuncioPublicitario" FromRole="AnuncioPublicitario" ToRole="EstadoAnuncioPublicitario" />
+    <NavigationProperty Name="Inmuebles" Relationship="Self.FK_AnuncioPublicitario_Inmuebles" FromRole="AnuncioPublicitario" ToRole="Inmuebles" />
+    <NavigationProperty Name="ServiciosInmobiliarios" Relationship="Self.FK_AnuncioPublicitario_ServiciosInmobiliarios" FromRole="AnuncioPublicitario" ToRole="ServiciosInmobiliarios" />
+    <NavigationProperty Name="Suscriptor" Relationship="Self.FK_AnuncioPublicitario_Suscriptor" FromRole="AnuncioPublicitario" ToRole="Suscriptor" />
+  </EntityType>
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="clienteId" />
+    </Key>
+    <Property Name="clienteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="inmobiliariaId" Type="Int32" />
+    <Property Name="documentoIdentidad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="numeroTelefonico" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="numeroMovil" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="direccionId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Direcciones" Relationship="Self.FK_Clientes_Direcciones" FromRole="Clientes" ToRole="Direcciones" />
+    <NavigationProperty Name="Inmobiliarias" Relationship="Self.FK_Clientes_Inmobiliarias" FromRole="Clientes" ToRole="Inmobiliarias" />
+  </EntityType>
+  <EntityType Name="Componentes">
+    <Key>
+      <PropertyRef Name="componenteId" />
+    </Key>
+    <Property Name="componenteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="InmuebleComponente" Relationship="Self.FK_InmuebleComponente_Componentes" FromRole="Componentes" ToRole="InmuebleComponente" />
+    <NavigationProperty Name="TipoInmuebleComponentes" Relationship="Self.FK_TipoInmuebleComponentes_Componentes" FromRole="Componentes" ToRole="TipoInmuebleComponentes" />
+  </EntityType>
+  <EntityType Name="Direcciones">
+    <Key>
+      <PropertyRef Name="direccionId" />
+    </Key>
+    <Property Name="direccionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="calle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="numeroPropiedad" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="geoLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="geoLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="localidadId" Type="Int32" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_Direcciones" FromRole="Direcciones" ToRole="Clientes" />
+    <NavigationProperty Name="Localidad" Relationship="Self.FK_Direcciones_Localidad" FromRole="Direcciones" ToRole="Localidad" />
+    <NavigationProperty Name="Inmuebles" Relationship="Self.FK_Inmuebles_Direcciones" FromRole="Direcciones" ToRole="Inmuebles" />
+    <NavigationProperty Name="Sucursales" Relationship="Self.FK_Sucursales_Direcciones" FromRole="Direcciones" ToRole="Sucursales" />
+    <NavigationProperty Name="Suscriptor" Relationship="Self.FK_Suscriptor_Direcciones" FromRole="Direcciones" ToRole="Suscriptor" />
+  </EntityType>
+  <EntityType Name="EstadoAnuncioPublicitario">
+    <Key>
+      <PropertyRef Name="estadoAnuncioPublicitarioId" />
+    </Key>
+    <Property Name="estadoAnuncioPublicitarioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AnuncioPublicitario" Relationship="Self.FK_AnuncioPublicitario_EstadoAnuncioPublicitario" FromRole="EstadoAnuncioPublicitario" ToRole="AnuncioPublicitario" />
+  </EntityType>
+  <EntityType Name="EstadoInmuebles">
+    <Key>
+      <PropertyRef Name="estadoInmuebleId" />
+    </Key>
+    <Property Name="estadoInmuebleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Inmuebles" Relationship="Self.FK_Inmuebles_EstadoInmuebles" FromRole="EstadoInmuebles" ToRole="Inmuebles" />
+  </EntityType>
+  <EntityType Name="EstadoSuscripcion">
+    <Key>
+      <PropertyRef Name="estadoSuscripcionId" />
+    </Key>
+    <Property Name="estadoSuscripcionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TipoSuscripcionSuscriptor" Relationship="Self.FK_TipoSuscripcionSuscriptor_EstadoSuscripcion" FromRole="EstadoSuscripcion" ToRole="TipoSuscripcionSuscriptor" />
+  </EntityType>
+  <EntityType Name="Inmobiliarias">
+    <Key>
+      <PropertyRef Name="inmobiliariaId" />
+    </Key>
+    <Property Name="inmobiliariaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="suscriptorId" Type="Int32" />
+    <Property Name="correoElectronico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="numeroTelefonico" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_Inmobiliarias" FromRole="Inmobiliarias" ToRole="Clientes" />
+    <NavigationProperty Name="Suscriptor" Relationship="Self.FK_Inmobiliarias_Suscriptor" FromRole="Inmobiliarias" ToRole="Suscriptor" />
+    <NavigationProperty Name="Sucursales" Relationship="Self.FK_Sucursales_Inmobiliarias" FromRole="Inmobiliarias" ToRole="Sucursales" />
+  </EntityType>
+  <EntityType Name="InmuebleComponente">
+    <Key>
+      <PropertyRef Name="inmuebleComponenteId" />
+    </Key>
+    <Property Name="inmuebleComponenteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="componenteId" Type="Int32" Nullable="false" />
+    <Property Name="inmuebleId" Type="Int32" />
+    <Property Name="cantidad" Type="Double" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Componentes" Relationship="Self.FK_InmuebleComponente_Componentes" FromRole="InmuebleComponente" ToRole="Componentes" />
+    <NavigationProperty Name="Inmuebles" Relationship="Self.FK_InmuebleComponente_Inmuebles" FromRole="InmuebleComponente" ToRole="Inmuebles" />
+  </EntityType>
+  <EntityType Name="Inmuebles">
+    <Key>
+      <PropertyRef Name="inmuebleId" />
+    </Key>
+    <Property Name="inmuebleId" Type="Int32" Nullable="false" />
+    <Property Name="codigoNFC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="codigoQR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="suscriptorId" Type="Int32" />
+    <Property Name="tipoInmuebleId" Type="Int32" />
+    <Property Name="estadoInmuebleId" Type="Int32" />
+    <Property Name="precio" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="direccionId" Type="Int32" />
+    <NavigationProperty Name="AnuncioPublicitario" Relationship="Self.FK_AnuncioPublicitario_Inmuebles" FromRole="Inmuebles" ToRole="AnuncioPublicitario" />
+    <NavigationProperty Name="Direcciones" Relationship="Self.FK_Inmuebles_Direcciones" FromRole="Inmuebles" ToRole="Direcciones" />
+    <NavigationProperty Name="EstadoInmuebles" Relationship="Self.FK_Inmuebles_EstadoInmuebles" FromRole="Inmuebles" ToRole="EstadoInmuebles" />
+    <NavigationProperty Name="InmuebleComponente" Relationship="Self.FK_InmuebleComponente_Inmuebles" FromRole="Inmuebles" ToRole="InmuebleComponente" />
+    <NavigationProperty Name="Suscriptor" Relationship="Self.FK_Inmuebles_Suscriptor" FromRole="Inmuebles" ToRole="Suscriptor" />
+    <NavigationProperty Name="TipoInmuebles" Relationship="Self.FK_Inmuebles_TipoInmuebles" FromRole="Inmuebles" ToRole="TipoInmuebles" />
+    <NavigationProperty Name="InmuebleServicios" Relationship="Self.FK_InmuebleServicios_Inmuebles" FromRole="Inmuebles" ToRole="InmuebleServicios" />
+    <NavigationProperty Name="Multimedia" Relationship="Self.FK_Multimedia_Inmuebles" FromRole="Inmuebles" ToRole="Multimedia" />
+  </EntityType>
+  <EntityType Name="InmuebleServicios">
+    <Key>
+      <PropertyRef Name="inmuebleServicioId" />
+    </Key>
+    <Property Name="inmuebleServicioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="inmuebleId" Type="Int32" />
+    <Property Name="servicioId" Type="Int32" />
+    <NavigationProperty Name="Inmuebles" Relationship="Self.FK_InmuebleServicios_Inmuebles" FromRole="InmuebleServicios" ToRole="Inmuebles" />
+    <NavigationProperty Name="Servicios" Relationship="Self.FK_InmuebleServicios_Servicios" FromRole="InmuebleServicios" ToRole="Servicios" />
+  </EntityType>
+  <EntityType Name="Localidad">
+    <Key>
+      <PropertyRef Name="localidadId" />
+    </Key>
+    <Property Name="localidadId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="geoLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="geoLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="municipioId" Type="Int32" />
+    <NavigationProperty Name="Direcciones" Relationship="Self.FK_Direcciones_Localidad" FromRole="Localidad" ToRole="Direcciones" />
+    <NavigationProperty Name="Municipios" Relationship="Self.FK_Localidad_Municipios" FromRole="Localidad" ToRole="Municipios" />
+  </EntityType>
+  <EntityType Name="Multimedia">
+    <Key>
+      <PropertyRef Name="multimediaId" />
+    </Key>
+    <Property Name="multimediaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="URL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="tipoMultimediaId" Type="Int32" />
+    <Property Name="inmuebleId" Type="Int32" />
+    <NavigationProperty Name="Inmuebles" Relationship="Self.FK_Multimedia_Inmuebles" FromRole="Multimedia" ToRole="Inmuebles" />
+    <NavigationProperty Name="TipoMultimedia" Relationship="Self.FK_Multimedia_TipoMultimedia" FromRole="Multimedia" ToRole="TipoMultimedia" />
+  </EntityType>
+  <EntityType Name="Municipios">
+    <Key>
+      <PropertyRef Name="municipioId" />
+    </Key>
+    <Property Name="municipioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="geoLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="geoLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="provinciaId" Type="Int32" />
+    <NavigationProperty Name="Localidad" Relationship="Self.FK_Localidad_Municipios" FromRole="Municipios" ToRole="Localidad" />
+    <NavigationProperty Name="Provincias" Relationship="Self.FK_Municipios_Provincias" FromRole="Municipios" ToRole="Provincias" />
+  </EntityType>
+  <EntityType Name="Periodos">
+    <Key>
+      <PropertyRef Name="periodoId" />
+    </Key>
+    <Property Name="periodoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="periodo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TipoSuscripcion" Relationship="Self.FK_TipoSuscripcion_Periodos" FromRole="Periodos" ToRole="TipoSuscripcion" />
+  </EntityType>
+  <EntityType Name="Provincias">
+    <Key>
+      <PropertyRef Name="provinciaId" />
+    </Key>
+    <Property Name="provinciaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="geoLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="geoLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Municipios" Relationship="Self.FK_Municipios_Provincias" FromRole="Provincias" ToRole="Municipios" />
+  </EntityType>
+  <EntityType Name="Reunion">
+    <Key>
+      <PropertyRef Name="reunionId" />
+    </Key>
+    <Property Name="reunionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fechaInicio" Type="DateTime" Precision="3" />
+    <Property Name="fechaTermino" Type="DateTime" Precision="3" />
+    <Property Name="duracion" Type="Time" Precision="7" />
+    <Property Name="suscriptorSolicitanteId" Type="Int32" Nullable="false" />
+    <Property Name="suscriptorEncargadoId" Type="Int32" Nullable="false" />
+    <Property Name="estadoReunionId" Type="Int32" />
+    <NavigationProperty Name="Suscriptor" Relationship="Self.FK_Reunion_Suscriptor" FromRole="Reunion" ToRole="Suscriptor" />
+    <NavigationProperty Name="Suscriptor1" Relationship="Self.FK_Reunion_SuscriptorSolicitante" FromRole="Reunion" ToRole="Suscriptor" />
+  </EntityType>
+  <EntityType Name="Servicios">
+    <Key>
+      <PropertyRef Name="servicioId" />
+    </Key>
+    <Property Name="servicioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nombreProveedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tipoServicioId" Type="Int32" />
+    <NavigationProperty Name="InmuebleServicios" Relationship="Self.FK_InmuebleServicios_Servicios" FromRole="Servicios" ToRole="InmuebleServicios" />
+    <NavigationProperty Name="TipoServicios" Relationship="Self.FK_Servicios_TipoServicios" FromRole="Servicios" ToRole="TipoServicios" />
+  </EntityType>
+  <EntityType Name="ServiciosInmobiliarios">
+    <Key>
+      <PropertyRef Name="servicoInmobiliarioId" />
+    </Key>
+    <Property Name="servicoInmobiliarioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="servicioInmobiliario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AnuncioPublicitario" Relationship="Self.FK_AnuncioPublicitario_ServiciosInmobiliarios" FromRole="ServiciosInmobiliarios" ToRole="AnuncioPublicitario" />
+  </EntityType>
+  <EntityType Name="Sucursales">
+    <Key>
+      <PropertyRef Name="sucursalId" />
+    </Key>
+    <Property Name="sucursalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="direccionId" Type="Int32" />
+    <Property Name="numeroTelefonico" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="inmobiliarioId" Type="Int32" />
+    <NavigationProperty Name="AgentesInmobiliarios" Relationship="Self.FK_AgentesInmobiliarios_Sucursales" FromRole="Sucursales" ToRole="AgentesInmobiliarios" />
+    <NavigationProperty Name="Direcciones" Relationship="Self.FK_Sucursales_Direcciones" FromRole="Sucursales" ToRole="Direcciones" />
+    <NavigationProperty Name="Inmobiliarias" Relationship="Self.FK_Sucursales_Inmobiliarias" FromRole="Sucursales" ToRole="Inmobiliarias" />
+  </EntityType>
+  <EntityType Name="Suscriptor">
+    <Key>
+      <PropertyRef Name="suscriptorId" />
+    </Key>
+    <Property Name="suscriptorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombreUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="salt" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="direccionId" Type="Int32" />
+    <Property Name="fechaNacimiento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="numeroTelefonico" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="correoElectronico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tipoSuscripcionId" Type="Int32" />
+    <NavigationProperty Name="AnuncioPublicitario" Relationship="Self.FK_AnuncioPublicitario_Suscriptor" FromRole="Suscriptor" ToRole="AnuncioPublicitario" />
+    <NavigationProperty Name="Direcciones" Relationship="Self.FK_Suscriptor_Direcciones" FromRole="Suscriptor" ToRole="Direcciones" />
+    <NavigationProperty Name="Inmobiliarias" Relationship="Self.FK_Inmobiliarias_Suscriptor" FromRole="Suscriptor" ToRole="Inmobiliarias" />
+    <NavigationProperty Name="Inmuebles" Relationship="Self.FK_Inmuebles_Suscriptor" FromRole="Suscriptor" ToRole="Inmuebles" />
+    <NavigationProperty Name="Reunion" Relationship="Self.FK_Reunion_Suscriptor" FromRole="Suscriptor" ToRole="Reunion" />
+    <NavigationProperty Name="Reunion1" Relationship="Self.FK_Reunion_SuscriptorSolicitante" FromRole="Suscriptor" ToRole="Reunion" />
+    <NavigationProperty Name="TipoSuscripcion" Relationship="Self.FK_Suscriptor_TipoSuscripcion" FromRole="Suscriptor" ToRole="TipoSuscripcion" />
+    <NavigationProperty Name="TipoSuscripcionSuscriptor" Relationship="Self.FK_TipoSuscripcionSuscriptor_Suscriptor" FromRole="Suscriptor" ToRole="TipoSuscripcionSuscriptor" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TipoInmuebleComponentes">
+    <Key>
+      <PropertyRef Name="tipoInmuebleComponenteId" />
+    </Key>
+    <Property Name="tipoInmuebleComponenteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipoInmuebleId" Type="Int32" />
+    <Property Name="componenteId" Type="Int32" />
+    <NavigationProperty Name="Componentes" Relationship="Self.FK_TipoInmuebleComponentes_Componentes" FromRole="TipoInmuebleComponentes" ToRole="Componentes" />
+    <NavigationProperty Name="TipoInmuebles" Relationship="Self.FK_TipoInmuebleComponentes_TipoInmuebles" FromRole="TipoInmuebleComponentes" ToRole="TipoInmuebles" />
+  </EntityType>
+  <EntityType Name="TipoInmuebles">
+    <Key>
+      <PropertyRef Name="tipoInmuebleId" />
+    </Key>
+    <Property Name="tipoInmuebleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Inmuebles" Relationship="Self.FK_Inmuebles_TipoInmuebles" FromRole="TipoInmuebles" ToRole="Inmuebles" />
+    <NavigationProperty Name="TipoInmuebleComponentes" Relationship="Self.FK_TipoInmuebleComponentes_TipoInmuebles" FromRole="TipoInmuebles" ToRole="TipoInmuebleComponentes" />
+  </EntityType>
+  <EntityType Name="TipoMultimedia">
+    <Key>
+      <PropertyRef Name="tipoMultimediaId" />
+    </Key>
+    <Property Name="tipoMultimediaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Multimedia" Relationship="Self.FK_Multimedia_TipoMultimedia" FromRole="TipoMultimedia" ToRole="Multimedia" />
+  </EntityType>
+  <EntityType Name="TipoServicios">
+    <Key>
+      <PropertyRef Name="tipoServicioId" />
+    </Key>
+    <Property Name="tipoServicioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Servicios" Relationship="Self.FK_Servicios_TipoServicios" FromRole="TipoServicios" ToRole="Servicios" />
+  </EntityType>
+  <EntityType Name="TipoSuscripcion">
+    <Key>
+      <PropertyRef Name="tipoSuscripcionId" />
+    </Key>
+    <Property Name="tipoSuscripcionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="precio" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="periodoId" Type="Int32" />
+    <NavigationProperty Name="Periodos" Relationship="Self.FK_TipoSuscripcion_Periodos" FromRole="TipoSuscripcion" ToRole="Periodos" />
+    <NavigationProperty Name="Suscriptor" Relationship="Self.FK_Suscriptor_TipoSuscripcion" FromRole="TipoSuscripcion" ToRole="Suscriptor" />
+    <NavigationProperty Name="TipoSuscripcionSuscriptor" Relationship="Self.FK_TipoSuscripcionSuscriptor_TipoSuscripcion" FromRole="TipoSuscripcion" ToRole="TipoSuscripcionSuscriptor" />
+  </EntityType>
+  <EntityType Name="TipoSuscripcionSuscriptor">
+    <Key>
+      <PropertyRef Name="tipoSuscripcionSuscriptorId" />
+    </Key>
+    <Property Name="tipoSuscripcionSuscriptorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="suscriptorId" Type="Int32" />
+    <Property Name="tipoSuscripcionId" Type="Int32" />
+    <Property Name="fechaCompra" Type="DateTime" Precision="3" />
+    <Property Name="fechaExperacion" Type="DateTime" Precision="3" />
+    <Property Name="estadoSuscripcionId" Type="Int32" />
+    <NavigationProperty Name="EstadoSuscripcion" Relationship="Self.FK_TipoSuscripcionSuscriptor_EstadoSuscripcion" FromRole="TipoSuscripcionSuscriptor" ToRole="EstadoSuscripcion" />
+    <NavigationProperty Name="Suscriptor" Relationship="Self.FK_TipoSuscripcionSuscriptor_Suscriptor" FromRole="TipoSuscripcionSuscriptor" ToRole="Suscriptor" />
+    <NavigationProperty Name="TipoSuscripcion" Relationship="Self.FK_TipoSuscripcionSuscriptor_TipoSuscripcion" FromRole="TipoSuscripcionSuscriptor" ToRole="TipoSuscripcion" />
+  </EntityType>
+  <Association Name="FK_AgentesInmobiliarios_Sucursales">
+    <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="1" />
+    <End Role="AgentesInmobiliarios" Type="Self.AgentesInmobiliarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sucursales">
+        <PropertyRef Name="sucursalId" />
+      </Principal>
+      <Dependent Role="AgentesInmobiliarios">
+        <PropertyRef Name="sucursalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnuncioPublicitario_EstadoAnuncioPublicitario">
+    <End Role="EstadoAnuncioPublicitario" Type="Self.EstadoAnuncioPublicitario" Multiplicity="1" />
+    <End Role="AnuncioPublicitario" Type="Self.AnuncioPublicitario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadoAnuncioPublicitario">
+        <PropertyRef Name="estadoAnuncioPublicitarioId" />
+      </Principal>
+      <Dependent Role="AnuncioPublicitario">
+        <PropertyRef Name="estadoAnuncioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnuncioPublicitario_Inmuebles">
+    <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="1" />
+    <End Role="AnuncioPublicitario" Type="Self.AnuncioPublicitario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Inmuebles">
+        <PropertyRef Name="inmuebleId" />
+      </Principal>
+      <Dependent Role="AnuncioPublicitario">
+        <PropertyRef Name="inmuebleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnuncioPublicitario_ServiciosInmobiliarios">
+    <End Role="ServiciosInmobiliarios" Type="Self.ServiciosInmobiliarios" Multiplicity="1" />
+    <End Role="AnuncioPublicitario" Type="Self.AnuncioPublicitario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiciosInmobiliarios">
+        <PropertyRef Name="servicoInmobiliarioId" />
+      </Principal>
+      <Dependent Role="AnuncioPublicitario">
+        <PropertyRef Name="servicioInmobiliarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AnuncioPublicitario_Suscriptor">
+    <End Role="Suscriptor" Type="Self.Suscriptor" Multiplicity="1" />
+    <End Role="AnuncioPublicitario" Type="Self.AnuncioPublicitario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suscriptor">
+        <PropertyRef Name="suscriptorId" />
+      </Principal>
+      <Dependent Role="AnuncioPublicitario">
+        <PropertyRef Name="suscriptorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clientes_Direcciones">
+    <End Role="Direcciones" Type="Self.Direcciones" Multiplicity="1" />
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Direcciones">
+        <PropertyRef Name="direccionId" />
+      </Principal>
+      <Dependent Role="Clientes">
+        <PropertyRef Name="direccionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clientes_Inmobiliarias">
+    <End Role="Inmobiliarias" Type="Self.Inmobiliarias" Multiplicity="0..1" />
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Inmobiliarias">
+        <PropertyRef Name="inmobiliariaId" />
+      </Principal>
+      <Dependent Role="Clientes">
+        <PropertyRef Name="inmobiliariaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InmuebleComponente_Componentes">
+    <End Role="Componentes" Type="Self.Componentes" Multiplicity="1" />
+    <End Role="InmuebleComponente" Type="Self.InmuebleComponente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Componentes">
+        <PropertyRef Name="componenteId" />
+      </Principal>
+      <Dependent Role="InmuebleComponente">
+        <PropertyRef Name="componenteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoInmuebleComponentes_Componentes">
+    <End Role="Componentes" Type="Self.Componentes" Multiplicity="0..1" />
+    <End Role="TipoInmuebleComponentes" Type="Self.TipoInmuebleComponentes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Componentes">
+        <PropertyRef Name="componenteId" />
+      </Principal>
+      <Dependent Role="TipoInmuebleComponentes">
+        <PropertyRef Name="tipoInmuebleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Direcciones_Localidad">
+    <End Role="Localidad" Type="Self.Localidad" Multiplicity="0..1" />
+    <End Role="Direcciones" Type="Self.Direcciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Localidad">
+        <PropertyRef Name="localidadId" />
+      </Principal>
+      <Dependent Role="Direcciones">
+        <PropertyRef Name="localidadId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inmuebles_Direcciones">
+    <End Role="Direcciones" Type="Self.Direcciones" Multiplicity="0..1" />
+    <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Direcciones">
+        <PropertyRef Name="direccionId" />
+      </Principal>
+      <Dependent Role="Inmuebles">
+        <PropertyRef Name="direccionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sucursales_Direcciones">
+    <End Role="Direcciones" Type="Self.Direcciones" Multiplicity="0..1" />
+    <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Direcciones">
+        <PropertyRef Name="direccionId" />
+      </Principal>
+      <Dependent Role="Sucursales">
+        <PropertyRef Name="direccionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Suscriptor_Direcciones">
+    <End Role="Direcciones" Type="Self.Direcciones" Multiplicity="0..1" />
+    <End Role="Suscriptor" Type="Self.Suscriptor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Direcciones">
+        <PropertyRef Name="direccionId" />
+      </Principal>
+      <Dependent Role="Suscriptor">
+        <PropertyRef Name="direccionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inmuebles_EstadoInmuebles">
+    <End Role="EstadoInmuebles" Type="Self.EstadoInmuebles" Multiplicity="0..1" />
+    <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadoInmuebles">
+        <PropertyRef Name="estadoInmuebleId" />
+      </Principal>
+      <Dependent Role="Inmuebles">
+        <PropertyRef Name="estadoInmuebleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoSuscripcionSuscriptor_EstadoSuscripcion">
+    <End Role="EstadoSuscripcion" Type="Self.EstadoSuscripcion" Multiplicity="0..1" />
+    <End Role="TipoSuscripcionSuscriptor" Type="Self.TipoSuscripcionSuscriptor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadoSuscripcion">
+        <PropertyRef Name="estadoSuscripcionId" />
+      </Principal>
+      <Dependent Role="TipoSuscripcionSuscriptor">
+        <PropertyRef Name="estadoSuscripcionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inmobiliarias_Suscriptor">
+    <End Role="Suscriptor" Type="Self.Suscriptor" Multiplicity="0..1" />
+    <End Role="Inmobiliarias" Type="Self.Inmobiliarias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suscriptor">
+        <PropertyRef Name="suscriptorId" />
+      </Principal>
+      <Dependent Role="Inmobiliarias">
+        <PropertyRef Name="suscriptorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sucursales_Inmobiliarias">
+    <End Role="Inmobiliarias" Type="Self.Inmobiliarias" Multiplicity="0..1" />
+    <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Inmobiliarias">
+        <PropertyRef Name="inmobiliariaId" />
+      </Principal>
+      <Dependent Role="Sucursales">
+        <PropertyRef Name="inmobiliarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InmuebleComponente_Inmuebles">
+    <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="0..1" />
+    <End Role="InmuebleComponente" Type="Self.InmuebleComponente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Inmuebles">
+        <PropertyRef Name="inmuebleId" />
+      </Principal>
+      <Dependent Role="InmuebleComponente">
+        <PropertyRef Name="inmuebleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inmuebles_Suscriptor">
+    <End Role="Suscriptor" Type="Self.Suscriptor" Multiplicity="0..1" />
+    <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suscriptor">
+        <PropertyRef Name="suscriptorId" />
+      </Principal>
+      <Dependent Role="Inmuebles">
+        <PropertyRef Name="suscriptorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inmuebles_TipoInmuebles">
+    <End Role="TipoInmuebles" Type="Self.TipoInmuebles" Multiplicity="0..1" />
+    <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoInmuebles">
+        <PropertyRef Name="tipoInmuebleId" />
+      </Principal>
+      <Dependent Role="Inmuebles">
+        <PropertyRef Name="tipoInmuebleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InmuebleServicios_Inmuebles">
+    <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="0..1" />
+    <End Role="InmuebleServicios" Type="Self.InmuebleServicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Inmuebles">
+        <PropertyRef Name="inmuebleId" />
+      </Principal>
+      <Dependent Role="InmuebleServicios">
+        <PropertyRef Name="inmuebleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Multimedia_Inmuebles">
+    <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="0..1" />
+    <End Role="Multimedia" Type="Self.Multimedia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Inmuebles">
+        <PropertyRef Name="inmuebleId" />
+      </Principal>
+      <Dependent Role="Multimedia">
+        <PropertyRef Name="inmuebleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InmuebleServicios_Servicios">
+    <End Role="Servicios" Type="Self.Servicios" Multiplicity="0..1" />
+    <End Role="InmuebleServicios" Type="Self.InmuebleServicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicios">
+        <PropertyRef Name="servicioId" />
+      </Principal>
+      <Dependent Role="InmuebleServicios">
+        <PropertyRef Name="servicioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Localidad_Municipios">
+    <End Role="Municipios" Type="Self.Municipios" Multiplicity="0..1" />
+    <End Role="Localidad" Type="Self.Localidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipios">
+        <PropertyRef Name="municipioId" />
+      </Principal>
+      <Dependent Role="Localidad">
+        <PropertyRef Name="municipioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Multimedia_TipoMultimedia">
+    <End Role="TipoMultimedia" Type="Self.TipoMultimedia" Multiplicity="0..1" />
+    <End Role="Multimedia" Type="Self.Multimedia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoMultimedia">
+        <PropertyRef Name="tipoMultimediaId" />
+      </Principal>
+      <Dependent Role="Multimedia">
+        <PropertyRef Name="tipoMultimediaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Municipios_Provincias">
+    <End Role="Provincias" Type="Self.Provincias" Multiplicity="0..1" />
+    <End Role="Municipios" Type="Self.Municipios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincias">
+        <PropertyRef Name="provinciaId" />
+      </Principal>
+      <Dependent Role="Municipios">
+        <PropertyRef Name="provinciaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoSuscripcion_Periodos">
+    <End Role="Periodos" Type="Self.Periodos" Multiplicity="0..1" />
+    <End Role="TipoSuscripcion" Type="Self.TipoSuscripcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Periodos">
+        <PropertyRef Name="periodoId" />
+      </Principal>
+      <Dependent Role="TipoSuscripcion">
+        <PropertyRef Name="periodoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reunion_Suscriptor">
+    <End Role="Suscriptor" Type="Self.Suscriptor" Multiplicity="1" />
+    <End Role="Reunion" Type="Self.Reunion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suscriptor">
+        <PropertyRef Name="suscriptorId" />
+      </Principal>
+      <Dependent Role="Reunion">
+        <PropertyRef Name="suscriptorEncargadoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reunion_SuscriptorSolicitante">
+    <End Role="Suscriptor" Type="Self.Suscriptor" Multiplicity="1" />
+    <End Role="Reunion" Type="Self.Reunion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suscriptor">
+        <PropertyRef Name="suscriptorId" />
+      </Principal>
+      <Dependent Role="Reunion">
+        <PropertyRef Name="suscriptorSolicitanteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Servicios_TipoServicios">
+    <End Role="TipoServicios" Type="Self.TipoServicios" Multiplicity="0..1" />
+    <End Role="Servicios" Type="Self.Servicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoServicios">
+        <PropertyRef Name="tipoServicioId" />
+      </Principal>
+      <Dependent Role="Servicios">
+        <PropertyRef Name="tipoServicioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Suscriptor_TipoSuscripcion">
+    <End Role="TipoSuscripcion" Type="Self.TipoSuscripcion" Multiplicity="0..1" />
+    <End Role="Suscriptor" Type="Self.Suscriptor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoSuscripcion">
+        <PropertyRef Name="tipoSuscripcionId" />
+      </Principal>
+      <Dependent Role="Suscriptor">
+        <PropertyRef Name="tipoSuscripcionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoSuscripcionSuscriptor_Suscriptor">
+    <End Role="Suscriptor" Type="Self.Suscriptor" Multiplicity="0..1" />
+    <End Role="TipoSuscripcionSuscriptor" Type="Self.TipoSuscripcionSuscriptor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suscriptor">
+        <PropertyRef Name="suscriptorId" />
+      </Principal>
+      <Dependent Role="TipoSuscripcionSuscriptor">
+        <PropertyRef Name="suscriptorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoInmuebleComponentes_TipoInmuebles">
+    <End Role="TipoInmuebles" Type="Self.TipoInmuebles" Multiplicity="0..1" />
+    <End Role="TipoInmuebleComponentes" Type="Self.TipoInmuebleComponentes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoInmuebles">
+        <PropertyRef Name="tipoInmuebleId" />
+      </Principal>
+      <Dependent Role="TipoInmuebleComponentes">
+        <PropertyRef Name="tipoInmuebleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoSuscripcionSuscriptor_TipoSuscripcion">
+    <End Role="TipoSuscripcion" Type="Self.TipoSuscripcion" Multiplicity="0..1" />
+    <End Role="TipoSuscripcionSuscriptor" Type="Self.TipoSuscripcionSuscriptor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoSuscripcion">
+        <PropertyRef Name="tipoSuscripcionId" />
+      </Principal>
+      <Dependent Role="TipoSuscripcionSuscriptor">
+        <PropertyRef Name="tipoSuscripcionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SearchMyHomeDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AgentesInmobiliarios" EntityType="Self.AgentesInmobiliarios" />
+    <EntitySet Name="AnuncioPublicitario" EntityType="Self.AnuncioPublicitario" />
+    <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+    <EntitySet Name="Componentes" EntityType="Self.Componentes" />
+    <EntitySet Name="Direcciones" EntityType="Self.Direcciones" />
+    <EntitySet Name="EstadoAnuncioPublicitario" EntityType="Self.EstadoAnuncioPublicitario" />
+    <EntitySet Name="EstadoInmuebles" EntityType="Self.EstadoInmuebles" />
+    <EntitySet Name="EstadoSuscripcion" EntityType="Self.EstadoSuscripcion" />
+    <EntitySet Name="Inmobiliarias" EntityType="Self.Inmobiliarias" />
+    <EntitySet Name="InmuebleComponente" EntityType="Self.InmuebleComponente" />
+    <EntitySet Name="Inmuebles" EntityType="Self.Inmuebles" />
+    <EntitySet Name="InmuebleServicios" EntityType="Self.InmuebleServicios" />
+    <EntitySet Name="Localidad" EntityType="Self.Localidad" />
+    <EntitySet Name="Multimedia" EntityType="Self.Multimedia" />
+    <EntitySet Name="Municipios" EntityType="Self.Municipios" />
+    <EntitySet Name="Periodos" EntityType="Self.Periodos" />
+    <EntitySet Name="Provincias" EntityType="Self.Provincias" />
+    <EntitySet Name="Reunion" EntityType="Self.Reunion" />
+    <EntitySet Name="Servicios" EntityType="Self.Servicios" />
+    <EntitySet Name="ServiciosInmobiliarios" EntityType="Self.ServiciosInmobiliarios" />
+    <EntitySet Name="Sucursales" EntityType="Self.Sucursales" />
+    <EntitySet Name="Suscriptor" EntityType="Self.Suscriptor" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TipoInmuebleComponentes" EntityType="Self.TipoInmuebleComponentes" />
+    <EntitySet Name="TipoInmuebles" EntityType="Self.TipoInmuebles" />
+    <EntitySet Name="TipoMultimedia" EntityType="Self.TipoMultimedia" />
+    <EntitySet Name="TipoServicios" EntityType="Self.TipoServicios" />
+    <EntitySet Name="TipoSuscripcion" EntityType="Self.TipoSuscripcion" />
+    <EntitySet Name="TipoSuscripcionSuscriptor" EntityType="Self.TipoSuscripcionSuscriptor" />
+    <AssociationSet Name="FK_AgentesInmobiliarios_Sucursales" Association="Self.FK_AgentesInmobiliarios_Sucursales">
+      <End Role="Sucursales" EntitySet="Sucursales" />
+      <End Role="AgentesInmobiliarios" EntitySet="AgentesInmobiliarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnuncioPublicitario_EstadoAnuncioPublicitario" Association="Self.FK_AnuncioPublicitario_EstadoAnuncioPublicitario">
+      <End Role="EstadoAnuncioPublicitario" EntitySet="EstadoAnuncioPublicitario" />
+      <End Role="AnuncioPublicitario" EntitySet="AnuncioPublicitario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnuncioPublicitario_Inmuebles" Association="Self.FK_AnuncioPublicitario_Inmuebles">
+      <End Role="Inmuebles" EntitySet="Inmuebles" />
+      <End Role="AnuncioPublicitario" EntitySet="AnuncioPublicitario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnuncioPublicitario_ServiciosInmobiliarios" Association="Self.FK_AnuncioPublicitario_ServiciosInmobiliarios">
+      <End Role="ServiciosInmobiliarios" EntitySet="ServiciosInmobiliarios" />
+      <End Role="AnuncioPublicitario" EntitySet="AnuncioPublicitario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AnuncioPublicitario_Suscriptor" Association="Self.FK_AnuncioPublicitario_Suscriptor">
+      <End Role="Suscriptor" EntitySet="Suscriptor" />
+      <End Role="AnuncioPublicitario" EntitySet="AnuncioPublicitario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clientes_Direcciones" Association="Self.FK_Clientes_Direcciones">
+      <End Role="Direcciones" EntitySet="Direcciones" />
+      <End Role="Clientes" EntitySet="Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clientes_Inmobiliarias" Association="Self.FK_Clientes_Inmobiliarias">
+      <End Role="Inmobiliarias" EntitySet="Inmobiliarias" />
+      <End Role="Clientes" EntitySet="Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InmuebleComponente_Componentes" Association="Self.FK_InmuebleComponente_Componentes">
+      <End Role="Componentes" EntitySet="Componentes" />
+      <End Role="InmuebleComponente" EntitySet="InmuebleComponente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoInmuebleComponentes_Componentes" Association="Self.FK_TipoInmuebleComponentes_Componentes">
+      <End Role="Componentes" EntitySet="Componentes" />
+      <End Role="TipoInmuebleComponentes" EntitySet="TipoInmuebleComponentes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Direcciones_Localidad" Association="Self.FK_Direcciones_Localidad">
+      <End Role="Localidad" EntitySet="Localidad" />
+      <End Role="Direcciones" EntitySet="Direcciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inmuebles_Direcciones" Association="Self.FK_Inmuebles_Direcciones">
+      <End Role="Direcciones" EntitySet="Direcciones" />
+      <End Role="Inmuebles" EntitySet="Inmuebles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sucursales_Direcciones" Association="Self.FK_Sucursales_Direcciones">
+      <End Role="Direcciones" EntitySet="Direcciones" />
+      <End Role="Sucursales" EntitySet="Sucursales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Suscriptor_Direcciones" Association="Self.FK_Suscriptor_Direcciones">
+      <End Role="Direcciones" EntitySet="Direcciones" />
+      <End Role="Suscriptor" EntitySet="Suscriptor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inmuebles_EstadoInmuebles" Association="Self.FK_Inmuebles_EstadoInmuebles">
+      <End Role="EstadoInmuebles" EntitySet="EstadoInmuebles" />
+      <End Role="Inmuebles" EntitySet="Inmuebles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoSuscripcionSuscriptor_EstadoSuscripcion" Association="Self.FK_TipoSuscripcionSuscriptor_EstadoSuscripcion">
+      <End Role="EstadoSuscripcion" EntitySet="EstadoSuscripcion" />
+      <End Role="TipoSuscripcionSuscriptor" EntitySet="TipoSuscripcionSuscriptor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inmobiliarias_Suscriptor" Association="Self.FK_Inmobiliarias_Suscriptor">
+      <End Role="Suscriptor" EntitySet="Suscriptor" />
+      <End Role="Inmobiliarias" EntitySet="Inmobiliarias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sucursales_Inmobiliarias" Association="Self.FK_Sucursales_Inmobiliarias">
+      <End Role="Inmobiliarias" EntitySet="Inmobiliarias" />
+      <End Role="Sucursales" EntitySet="Sucursales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InmuebleComponente_Inmuebles" Association="Self.FK_InmuebleComponente_Inmuebles">
+      <End Role="Inmuebles" EntitySet="Inmuebles" />
+      <End Role="InmuebleComponente" EntitySet="InmuebleComponente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inmuebles_Suscriptor" Association="Self.FK_Inmuebles_Suscriptor">
+      <End Role="Suscriptor" EntitySet="Suscriptor" />
+      <End Role="Inmuebles" EntitySet="Inmuebles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inmuebles_TipoInmuebles" Association="Self.FK_Inmuebles_TipoInmuebles">
+      <End Role="TipoInmuebles" EntitySet="TipoInmuebles" />
+      <End Role="Inmuebles" EntitySet="Inmuebles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InmuebleServicios_Inmuebles" Association="Self.FK_InmuebleServicios_Inmuebles">
+      <End Role="Inmuebles" EntitySet="Inmuebles" />
+      <End Role="InmuebleServicios" EntitySet="InmuebleServicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Multimedia_Inmuebles" Association="Self.FK_Multimedia_Inmuebles">
+      <End Role="Inmuebles" EntitySet="Inmuebles" />
+      <End Role="Multimedia" EntitySet="Multimedia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InmuebleServicios_Servicios" Association="Self.FK_InmuebleServicios_Servicios">
+      <End Role="Servicios" EntitySet="Servicios" />
+      <End Role="InmuebleServicios" EntitySet="InmuebleServicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Localidad_Municipios" Association="Self.FK_Localidad_Municipios">
+      <End Role="Municipios" EntitySet="Municipios" />
+      <End Role="Localidad" EntitySet="Localidad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Multimedia_TipoMultimedia" Association="Self.FK_Multimedia_TipoMultimedia">
+      <End Role="TipoMultimedia" EntitySet="TipoMultimedia" />
+      <End Role="Multimedia" EntitySet="Multimedia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Municipios_Provincias" Association="Self.FK_Municipios_Provincias">
+      <End Role="Provincias" EntitySet="Provincias" />
+      <End Role="Municipios" EntitySet="Municipios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoSuscripcion_Periodos" Association="Self.FK_TipoSuscripcion_Periodos">
+      <End Role="Periodos" EntitySet="Periodos" />
+      <End Role="TipoSuscripcion" EntitySet="TipoSuscripcion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reunion_Suscriptor" Association="Self.FK_Reunion_Suscriptor">
+      <End Role="Suscriptor" EntitySet="Suscriptor" />
+      <End Role="Reunion" EntitySet="Reunion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reunion_SuscriptorSolicitante" Association="Self.FK_Reunion_SuscriptorSolicitante">
+      <End Role="Suscriptor" EntitySet="Suscriptor" />
+      <End Role="Reunion" EntitySet="Reunion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Servicios_TipoServicios" Association="Self.FK_Servicios_TipoServicios">
+      <End Role="TipoServicios" EntitySet="TipoServicios" />
+      <End Role="Servicios" EntitySet="Servicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Suscriptor_TipoSuscripcion" Association="Self.FK_Suscriptor_TipoSuscripcion">
+      <End Role="TipoSuscripcion" EntitySet="TipoSuscripcion" />
+      <End Role="Suscriptor" EntitySet="Suscriptor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoSuscripcionSuscriptor_Suscriptor" Association="Self.FK_TipoSuscripcionSuscriptor_Suscriptor">
+      <End Role="Suscriptor" EntitySet="Suscriptor" />
+      <End Role="TipoSuscripcionSuscriptor" EntitySet="TipoSuscripcionSuscriptor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoInmuebleComponentes_TipoInmuebles" Association="Self.FK_TipoInmuebleComponentes_TipoInmuebles">
+      <End Role="TipoInmuebles" EntitySet="TipoInmuebles" />
+      <End Role="TipoInmuebleComponentes" EntitySet="TipoInmuebleComponentes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoSuscripcionSuscriptor_TipoSuscripcion" Association="Self.FK_TipoSuscripcionSuscriptor_TipoSuscripcion">
+      <End Role="TipoSuscripcion" EntitySet="TipoSuscripcion" />
+      <End Role="TipoSuscripcionSuscriptor" EntitySet="TipoSuscripcionSuscriptor" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

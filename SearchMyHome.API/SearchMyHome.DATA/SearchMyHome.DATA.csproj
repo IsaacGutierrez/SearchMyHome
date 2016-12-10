@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7BB54A5D-5DF7-440F-9C38-CD6ABB94344E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SearchMyHome.DATA</RootNamespace>
+    <AssemblyName>SearchMyHome.DATA</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AgentesInmobiliarios.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AnuncioPublicitario.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Componentes.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Direcciones.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EstadoAnuncioPublicitario.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EstadoInmuebles.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EstadoSuscripcion.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inmobiliarias.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InmuebleComponente.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inmuebles.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InmuebleServicios.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Localidad.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Multimedia.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Municipios.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Periodos.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provincias.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\SuscriptorRepository.cs" />
+    <Compile Include="Reunion.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SearchMyHomeModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchMyHomeModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SearchMyHomeModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SearchMyHomeModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchMyHomeModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiciosInmobiliarios.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sucursales.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Suscriptor.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoInmuebleComponentes.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoInmuebles.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoMultimedia.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoServicios.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoSuscripcion.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoSuscripcionSuscriptor.cs">
+      <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="SearchMyHomeModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SearchMyHomeModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="SearchMyHomeModel.edmx.diagram">
+      <DependentUpon>SearchMyHomeModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SearchMyHomeModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SearchMyHomeModel.edmx</DependentUpon>
+      <LastGenOutput>SearchMyHomeModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SearchMyHomeModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SearchMyHomeModel.edmx</DependentUpon>
+      <LastGenOutput>SearchMyHomeModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

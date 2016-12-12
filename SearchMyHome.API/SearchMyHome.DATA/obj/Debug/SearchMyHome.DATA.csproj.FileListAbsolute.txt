@@ -8,3 +8,6 @@ c:\users\isaac gutierrez\documents\visual studio 2015\Projects\SearchMyHome.API\
 c:\users\isaac gutierrez\documents\visual studio 2015\Projects\SearchMyHome.API\SearchMyHome.DATA\obj\Debug\SearchMyHome.DATA.csprojResolveAssemblyReference.cache
 c:\users\isaac gutierrez\documents\visual studio 2015\Projects\SearchMyHome.API\SearchMyHome.DATA\obj\Debug\SearchMyHome.DATA.dll
 c:\users\isaac gutierrez\documents\visual studio 2015\Projects\SearchMyHome.API\SearchMyHome.DATA\obj\Debug\SearchMyHome.DATA.pdb
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome.API\SearchMyHome.DATA\obj\Debug\SearchMyHome.DATA.csprojResolveAssemblyReference.cache
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome.API\SearchMyHome.DATA\obj\Debug\SearchMyHome.DATA.dll
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome.API\SearchMyHome.DATA\obj\Debug\SearchMyHome.DATA.pdb

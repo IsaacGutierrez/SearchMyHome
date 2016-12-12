@@ -11,7 +11,7 @@ namespace SearchMyHome.DATA.Repository
     {
         string create(T entity );
         string update(T entity,int id);
-        void delete(T entity);
+        void delete(int id);
         T read(int id);
         IEnumerable<T> readAll();
        

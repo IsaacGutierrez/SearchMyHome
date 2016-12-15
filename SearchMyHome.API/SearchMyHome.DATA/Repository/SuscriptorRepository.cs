@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SearchMyHome.DATA;
+using System.Linq.Expressions;
 
 namespace SearchMyHome.DATA.Repository
 {
@@ -27,9 +28,9 @@ namespace SearchMyHome.DATA.Repository
             return string.Empty;
         }
 
-        public void delete(int id)
+        public void delete(Suscriptor entity)
         {
-            var suscriptor = entities.Suscriptor.Find(id);
+            var suscriptor = entities.Suscriptor.Find(entity.suscriptorId);
 
             if (suscriptor!= null)
             {
@@ -39,12 +40,17 @@ namespace SearchMyHome.DATA.Repository
             
         }
 
-        public Suscriptor read(int id)
+        public IQueryable<Suscriptor> read(Expression<Func<Suscriptor,bool>> predicate)
         {
-            var suscriptor = entities.Suscriptor.Find(id);
-            if (suscriptor!= null)
-                return suscriptor;
-            throw new Exception("no se encontro la entidad");
+            var suscriptor = entities.Suscriptor.Where(predicate);
+            return suscriptor;
+        }
+
+        public Suscriptor findById(int id)
+        {
+            var suscriptor = entities.Suscriptor.Single(model => model.suscriptorId == id);
+            return suscriptor;
+
         }
 
         public IEnumerable<Suscriptor> readAll()

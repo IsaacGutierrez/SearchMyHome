@@ -44,6 +44,8 @@ namespace SearchMyHome.DATA.Repository
         {
             var suscriptor = entities.Suscriptor.Where(predicate);
             return suscriptor;
+
+           
         }
 
         public Suscriptor findById(int id)

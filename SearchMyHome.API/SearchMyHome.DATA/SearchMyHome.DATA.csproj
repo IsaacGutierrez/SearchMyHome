@@ -41,6 +41,9 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Linq.Dynamic">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -75,6 +78,7 @@
     <Compile Include="EstadoSuscripcion.cs">
       <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\IQueryableExtensions.cs" />
     <Compile Include="Inmobiliarias.cs">
       <DependentUpon>SearchMyHomeModel.tt</DependentUpon>
     </Compile>

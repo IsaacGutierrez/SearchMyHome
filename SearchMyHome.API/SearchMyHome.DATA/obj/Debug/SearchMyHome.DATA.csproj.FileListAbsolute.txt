@@ -18,3 +18,4 @@ C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome.API\SearchMy
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome.API\SearchMyHome.DATA\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome.API\SearchMyHome.DATA\bin\Debug\EntityFramework.xml
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome.API\SearchMyHome.DATA\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome.API\SearchMyHome.DATA\bin\Debug\System.Linq.Dynamic.dll

@@ -132,3 +132,4 @@ C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome.API\SearchMy
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome.API\SearchMyHome.API.Tests\obj\Debug\SearchMyHome.API.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome.API\SearchMyHome.API.Tests\obj\Debug\SearchMyHome.API.Tests.dll
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome.API\SearchMyHome.API.Tests\obj\Debug\SearchMyHome.API.Tests.pdb
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome.API\SearchMyHome.API.Tests\bin\Debug\System.Linq.Dynamic.dll

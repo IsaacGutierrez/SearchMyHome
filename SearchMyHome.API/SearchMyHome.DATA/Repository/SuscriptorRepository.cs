@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace SearchMyHome.DATA.Repository
 {
-    public class SuscriptorRepository : IRepository<Suscriptor>
+    public class SQLSuscriptorRepository : IRepository<Suscriptor>
     {
         SearchMyHomeDBEntities entities = new SearchMyHomeDBEntities();
         public string create(Suscriptor entity)

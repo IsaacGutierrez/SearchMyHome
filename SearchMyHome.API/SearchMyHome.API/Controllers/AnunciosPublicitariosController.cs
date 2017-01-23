@@ -26,5 +26,12 @@ namespace SearchMyHome.API.Controllers
             }
            
         }
+
+        [HttpPost]
+        public IHttpActionResult post([FromBody] AnuncioPublicitario anuncioPublicitario)
+        {
+
+            return Created("/AnuncioPublicitarios/" + 2, new AnuncioPublicitario());
+        }
     }
-}
+} 

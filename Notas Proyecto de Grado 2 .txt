@@ -1,0 +1,23 @@
+26/01/2017
+
+Aplicación móvil
+	Utilizar las loader 
+	Utilizar tareas asincronas 
+	Navigation en contextos diferentes 
+	Navigation travel 
+	Asing task 
+	Share preference private**
+	Clase de configuración
+	Se puede guardar la clase para luego recuperla 
+	  La guarda en un binario en el string 
+	La información basica quizá quepa en el tag nfc utilizando texto
+
+Web
+	Trabajar la parte web antes de dedicarse a la api y luego la móvil
+	Hacer enfoque en lo mas necesario.
+  		Web
+  		Api
+  		Movil
+
+
+

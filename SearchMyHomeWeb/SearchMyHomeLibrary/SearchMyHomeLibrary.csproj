@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{30F38783-90AF-45D4-BF82-BBA8A4F276DD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SearchMyHomeLibrary</RootNamespace>
+    <AssemblyName>SearchMyHomeLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contracts\IAnuncioPublicitarios.cs" />
+    <Compile Include="Repository\AnuncioPublicitarioRepository.cs" />
+    <Compile Include="SearchMyHomeModel\AgentesInmobiliario.cs" />
+    <Compile Include="SearchMyHomeModel\AnuncioPublicitario.cs" />
+    <Compile Include="SearchMyHomeModel\Clientes.cs" />
+    <Compile Include="SearchMyHomeModel\Componente.cs" />
+    <Compile Include="SearchMyHomeModel\Direccion.cs" />
+    <Compile Include="SearchMyHomeModel\EstadoAnuncioPublicitario.cs" />
+    <Compile Include="SearchMyHomeModel\EstadoInmuble.cs" />
+    <Compile Include="SearchMyHomeModel\EstadoSuscripcion.cs" />
+    <Compile Include="SearchMyHomeModel\Inmobiliaria.cs" />
+    <Compile Include="SearchMyHomeModel\Inmueble.cs" />
+    <Compile Include="SearchMyHomeModel\InmuebleComponentes.cs" />
+    <Compile Include="SearchMyHomeModel\InmuebleServicios.cs" />
+    <Compile Include="SearchMyHomeModel\Localidad.cs" />
+    <Compile Include="SearchMyHomeModel\Multimedia.cs" />
+    <Compile Include="SearchMyHomeModel\Municipio.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchMyHomeModel\Periodos.cs" />
+    <Compile Include="SearchMyHomeModel\Provincia.cs" />
+    <Compile Include="SearchMyHomeModel\Reunion.cs" />
+    <Compile Include="SearchMyHomeModel\ServicioInmobiliario.cs" />
+    <Compile Include="SearchMyHomeModel\Servicios.cs" />
+    <Compile Include="SearchMyHomeModel\Sucursales.cs" />
+    <Compile Include="SearchMyHomeModel\Suscriptor.cs" />
+    <Compile Include="SearchMyHomeModel\TipoInmueble.cs" />
+    <Compile Include="SearchMyHomeModel\TipoInmuebleComponentes.cs" />
+    <Compile Include="SearchMyHomeModel\TipoMultimedia.cs" />
+    <Compile Include="SearchMyHomeModel\TipoServicios.cs" />
+    <Compile Include="SearchMyHomeModel\TipoSuscripcion.cs" />
+    <Compile Include="SearchMyHomeModel\TipoSuscripcionSuscriptor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

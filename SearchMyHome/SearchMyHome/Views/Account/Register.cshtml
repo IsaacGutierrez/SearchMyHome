@@ -1,0 +1,255 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "SearchMyHome | registro";
+}
+
+<style>
+    .ui .card .content{
+        height:13em;
+    }
+    .ui .card .content:hover{
+        height:14em;
+        box-shadow:black 10px 10px unset;
+        transition:1.3s;
+
+    }
+</style>
+<div class="ui two steps">
+     
+    <div class="step">
+        <i class="info icon"></i>
+        <div class="content">
+            <div class="title">
+                Información del suscriptor
+            </div>
+            <div class="description">
+                Registre su información personal
+            </div>
+        </div>
+    </div>
+</div>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+    <div class="ui container" id="SuscriptionInfo-container" style="display:none">
+        <div class="ui stackable four column grid">
+
+            <div class="column">
+                <div class="ui card">
+                    <div class="ui" style="padding:4em 1em; margin:0px;">
+                        <h2 style="text-align:center">Basica</h2>
+                    </div>
+                    <div class="content">
+                        <div class="title">
+                            Precio
+                        </div>
+                        <div class="meta">
+                            Gratis
+                        </div>
+                        <div class="description">
+
+                            <div class="ui message">
+                                <div class="item">
+                                    <i class="ui icon search"></i>
+                                    Busquedas Avanzadas
+                                </div>
+                                <div class="item">
+                                    <i class="ui icon map"></i>
+                                    Agregar inmueble como favorito
+                                </div>
+                                <div class="item">
+                                    <i class="ui icon computer"></i>
+                                    Realizar video-reuniones
+                                </div>
+                                <div class="item">
+                                    <i class="comment icon"></i>
+                                    Realizar comentario
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="ui bottom attached button">
+                        <i class="large add car icon"></i>
+                        Adquirir
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="ui card">
+                    <div class="ui red inverted" style="padding:4em 1em; margin:0px;">
+                        <h2 style="text-align:center">Standard</h2>
+                    </div>
+                    <div class="content">
+                        <div class="title">
+                            Precio
+                        </div>
+                        <div class="meta">
+                            $RD 1,500
+                        </div>
+                        <div class="description">
+                            <div class="ui message">
+                                <div class="ui list">
+                                    <div class="item">
+                                        <i class="video icon"></i> 2 Videos
+
+                                    </div>
+                                    <div class="item">
+                                        <i class="image icon"></i> 10 Imagenes
+                                    </div>
+
+                                    <div class="item">
+                                        <i class="computer icon"></i> Video-reuniones
+                                    </div>
+                                    <div class="item">
+                                        <i class="calendar icon"></i> 60 Dias
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui bottom attached  button">
+                        <i class="large add to cart icon"></i>
+                        Adquirir
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="ui card">
+                    <div class="ui" style="padding:4em 1em; margin:0px;">
+                        <h2 style="text-align:center">Premiun</h2>
+                    </div>
+                    <div class="content">
+                        <div class="title">
+                            Precio
+                        </div>
+                        <div class="meta">
+                            $RD 2,500
+                        </div>
+                        <div class="description">
+                            <div class="ui divided"></div>
+                            <div class="ui message">
+                                <div class="ui list">
+                                    <div class="item">
+                                        <i class="video icon"></i> 2 Videos
+
+                                    </div>
+                                    <div class="item">
+                                        <i class="image icon"></i> 10 Imagenes
+                                    </div>
+
+                                    <div class="item">
+                                        <i class="computer icon"></i> Video-reuniones
+                                    </div>
+                                    <div class="item">
+                                        <i class="calendar icon"></i> 60 Dias
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <div class="ui bottom attached button">
+                        <i class="large add to cart icon"></i>
+                        Adquirir
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="ui card">
+                    <div class="ui" style="padding:4em 1em; margin:0px;">
+                        <h2 style="text-align:center">Inmobiliarias</h2>
+                    </div>
+                    <div class="content">
+                        <div class="title">
+                            Precio
+                        </div>
+                        <div class="meta">
+                            $RD 5,000
+                        </div>
+                        <div class="description">
+                            <ul>
+                                <div class="ui message">
+                                    <div class="ui list">
+                                        <div class="item">
+                                            <i class="video icon"></i> 2 Videos
+
+                                        </div>
+                                        <div class="item">
+                                            <i class="image icon"></i> 10 Imagenes
+                                        </div>
+
+                                        <div class="item">
+                                            <i class="computer icon"></i> Video-reuniones
+                                        </div>
+                                        <div class="item">
+                                            <i class="calendar icon"></i> 60 Dias
+                                        </div>
+                                    </div>
+                                </div>
+                            </ul>
+
+
+                        </div>
+                    </div>
+                    <div class="ui bottom attached button">
+                        <i class="large add to cart icon"></i>
+                        Adquirir
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+
+    <div class="ui container" id="UserInfo-container" >
+        <div class="ui four column">
+            <div class="ui form">
+                <h4 class="ui dividing header">Información personal</h4>
+                <div class="ui segment">
+                    <div class="one field">
+                        <div class="field">
+                            <label>Nombres</label>
+                            <input type="text" placeholder="Nombres" />
+                        </div>
+                        <div class="field">
+                            <label>Apellidos</label>
+                            <input type="text" placeholder="Apellidos" />
+                        </div>
+                        <div class="field">
+                            <label>Numero Telefónico</label>
+                            <input type="text" placeholder="Número telefonico" />
+                        </div>
+                        <div class="field">
+                            <label>Correo electrónico</label>
+                            <input type="text" placeholder="Correo electrónico" />
+                        </div>
+                        <div class="field">
+                            <input type="button" class="ui fluid button default" value="Registrar" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+
+        });
+    </script>
+}

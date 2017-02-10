@@ -19,5 +19,40 @@ Web
   		Api
   		Movil
 
+Leandro 
+	Noyola : proximo jueves al menos 10 reportes del sistema.
+
+Web Maps API
+	 AIzaSyD0azjcLYOqofMz3pbHbmdk8N7_GuBXk-w 
+
+	 
+
+09/02/17
+
+Si se envia correo no ponerlo en el mismo thread.
+Tarea que genere varios procesos puede cargar la aplicacion.
+
+Cola que vaya procesando los emails, para evitar cargar demasiado el sistema.
+	Separar en threads.
+Enviar un GUI. 		
+	Crear atributo al usuario (GUI) para identificarlo al momento de enviar el correo
+
+
+
+Ir mostrando en el mapa 
+	Marcar en el mapa, para devolver la latitud y longitud. 
+
+Una busqueda deberia tener mas facilidad 
+	Opcion de busqueda avanzada 
+	La busqueda (sticky)
+
+Umbraco ****
+
+Proxima clase 16/02/17
+	Ventana principal con todo lo que va a tener 
+	Parte de la busqueda (Donde se haran los filtros)
+
+
+
 
 

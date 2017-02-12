@@ -1,5 +1,0 @@
-C:\Users\Raymond\documents\visual studio 2015\Projects\SearchMyHomeWeb\SearchMyHomeLibrary\bin\Debug\SearchMyHomeLibrary.dll
-C:\Users\Raymond\documents\visual studio 2015\Projects\SearchMyHomeWeb\SearchMyHomeLibrary\bin\Debug\SearchMyHomeLibrary.pdb
-C:\Users\Raymond\documents\visual studio 2015\Projects\SearchMyHomeWeb\SearchMyHomeLibrary\obj\Debug\SearchMyHomeLibrary.csprojResolveAssemblyReference.cache
-C:\Users\Raymond\documents\visual studio 2015\Projects\SearchMyHomeWeb\SearchMyHomeLibrary\obj\Debug\SearchMyHomeLibrary.dll
-C:\Users\Raymond\documents\visual studio 2015\Projects\SearchMyHomeWeb\SearchMyHomeLibrary\obj\Debug\SearchMyHomeLibrary.pdb

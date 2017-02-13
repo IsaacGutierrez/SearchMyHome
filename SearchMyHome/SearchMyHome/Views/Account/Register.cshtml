@@ -1,0 +1,104 @@
+﻿@model  SearchMyHome.Models.PreRegisterViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "SearchMyHome | registro";
+}
+<div class="ui two steps">
+     
+    <div class="step">
+        <i class="info icon"></i>
+        <div class="content">
+            <div class="title">
+                Registro de suscriptor
+            </div>
+            <div class="description">
+                Registrese como nuestro suscriptor
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="ui container" id="UserInfo-container" >
+        
+        <div class="ui stackable relaxed centered grid">
+            <div class="four wide column">
+                <h4 class="ui dividing header">Registrase con las redes sociales</h4>
+                <button class="ui fluid facebook button">
+                    <i class="facebook icon"></i>
+                    Facebook
+                </button>
+                <br/>
+                <button class="ui fluid google plus button">
+                    <i class="google plus icon"></i>
+                    Google plus
+                </button>
+                <br />
+                <button class="ui fluid instagram button">
+                    <i class="instagram icon"></i>
+                    Instagram
+                </button>
+                <br />
+                <button class="ui fluid twitter button">
+                    <i class="twitter icon"></i>
+                    Twitter
+                </button>
+            </div>
+            <div class="ui eight wide column">
+
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+
+{ 
+    @Html.AntiForgeryToken()
+     <div class="ui form">
+                    <h4 class="ui dividing header">Información personal</h4>
+                    <div class="ui segment" id="local-register-segment">
+                        <div class="one field">
+                            <div class="field">
+                                <label>Nombres</label>
+                                @Html.TextBoxFor(model => model.Names, new { @placeHolder = "Nombres" })
+                                @Html.ValidationMessageFor(model => model.Names)
+                            </div>
+                            <div class="field">
+                                <label>Apellidos</label>
+                                @Html.TextBoxFor(model => model.Lastnames,new {@placeHolder="Apellidos" })
+                                @Html.ValidationMessageFor(model => model.Lastnames)
+                            </div>
+                            <div class="field">
+                                <label>Numero Telefónico</label>
+                                @Html.TextBoxFor(model => model.PhoneNumber,new { @Class="phone"  })
+                                @Html.ValidationMessageFor(model => model.PhoneNumber)
+                            </div>
+                            <div class="field">
+                                <label>Correo electrónico</label>
+                                @Html.TextBoxFor(model => model.Email)
+                            </div>
+                            <div class="field">
+                                <input type="submit" class="ui fluid button primary" id="btn-register" value="Registrarse" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+}
+            </div>
+        </div>
+        
+    </div>
+
+
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $(".phone").mask("(999)-999-9999");
+
+            //loading effect to register segment
+            $("#btn-register").click(function () {
+                
+                $("#local-register-segment").addClass("loading");
+            });
+        });
+    </script>
+}

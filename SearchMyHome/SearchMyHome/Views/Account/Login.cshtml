@@ -1,0 +1,48 @@
+﻿@using SearchMyHome.Models
+@model LoginViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Log in";
+}
+
+<h2>Iniciar Sesión</h2>
+<br/>
+<div class="ui stackable grid">
+    <div class="ui eight wide column segment">
+        <div class="ui form">
+            <div class="field">
+                <label>Nombre Usuario</label>
+                <input type="text" placeholder="Nombre usuario" />
+            </div>
+            <div class="field">
+                <label> Password</label>
+                <input type="password" placeholder="Password" />
+            </div>
+            <div class="field">
+                <div class="ui slider checkbox">
+                    <input type="checkbox" name="RemenberMe"/>
+                    <label>Recordame?</label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="pull-left">
+                    <button class="ui button primary">Iniciar Sesión</button>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+   
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    
+    <script>
+        $(document).ready(function () {
+            $("#btn-iniciarSesion").css({"display":"none"});
+        });
+
+    </script>
+}

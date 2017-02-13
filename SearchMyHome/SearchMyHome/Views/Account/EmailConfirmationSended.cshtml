@@ -1,0 +1,24 @@
+﻿@model SearchMyHome.Models.PreRegisterViewModel
+@{
+    ViewBag.Title = "EmailConfirmationSended";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="ui container">
+
+    <div class="ui eight wide centered column card">
+        <div class="ui image">
+          <img src="~/Content/image/Confirmado.png" />
+        </div>
+        <div class="content">
+            <div class="title">
+                <h2>Gracias @Model.Names!</h2>
+            </div>
+            <div class="description">
+                <h5 class="red">Confirme su dirección de correo electronico: @Model.Email</h5>
+            </div>
+        </div>
+        
+    </div>
+</div>
+

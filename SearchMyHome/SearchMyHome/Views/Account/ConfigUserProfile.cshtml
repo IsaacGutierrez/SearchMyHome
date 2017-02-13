@@ -1,0 +1,169 @@
+﻿@model SearchMyHome.Models.UserProfileConfigurationViewModel
+@{
+    ViewBag.Title = "ConfigUserProfile";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>ConfigUserProfile</h2>
+
+
+
+
+<div class="ui modal user-settings">
+    <i class="close icon"></i>
+    <div class="header">
+        
+        <div class="ui ordered centered  steps">
+            <div class="active step">
+                <div class="content">
+                    <div class="title">Información de cuenta</div>
+                    <div class="description">
+                        Complete la información de su perfil
+                    </div>
+                </div>
+
+            </div>
+            <div class="step">
+                <div class="content">
+                    <div class="title">
+                        adquirir Suscripción
+                    </div>
+                    <div class="description">
+                        Elija el plan que mas se acomode a sus necesidades
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="image content">
+        @using (Html.BeginForm("ConfigUserProfile", "Acccount",FormMethod.Post,new {@enctype="multipart/form-data" })) {
+        <div class="ui medium image fluid">
+            @Html.HiddenFor(model => model._suscriptorGuid)
+            <img src="~/Content/semantic-ui/avatar/tom.jpg" id="config-user-image-display" style="max-height:350px">
+            <input type="file" name="_profileImage" style="display:none" id="_profileImage" onchange="loadImage(this)" />
+            <input type="button" class="ui button primary fluid" value="Cargar Foto" onclick="$('#_profileImage').click()" />
+        </div> 
+        }
+        <div class="description">
+            <div class="ui form">
+                <div class="ui dividing header ">
+                    Información de perfil
+                </div>
+                <div class="field">
+                   <div class="two fields">
+                       <div class="field">
+                           <label>Nombres</label>
+                           @Html.TextBoxFor(model => model._name, new { @placeholder = "Nombres" })
+                           @Html.ValidationMessageFor(model => model._name)
+                       </div>
+                       <div class="field">
+                           <label>Apellidos</label>
+                           @Html.TextBoxFor(model => model._lastname, new { @placeholder = "Apellidos" })
+                           @Html.ValidationMessageFor(model => model._lastname)
+                       </div>
+                   </div>
+                   <div class="two fields">
+                       <div class="field">
+                           <label>Email</label>
+                           @Html.TextBoxFor(model => model._email, new { @placeholder = "Email" })
+                           @Html.ValidationMessageFor(model => model._email)
+                       </div>
+                      <div class="field">
+                          <label>Nombre Usuario</label>
+                          @Html.TextBoxFor(model => model._userName,new { @placeholder = "Nombre Usuario" })
+                          @Html.ValidationMessageFor(model => model._userName)
+                      </div>
+                   </div>
+                    <div class="two fields">
+                        <div class="field">
+                            <label>Password</label>
+                            @Html.TextBoxFor(model => model._password,new {@type="password",@placeholder="password" })
+                        </div>
+                         <div class="field">
+                             <label>Confirmar password</label>
+                             @Html.TextBoxFor(model => model._confirmPassword, new { @type = "password", @placeholder = " Confirmar password" })
+                         </div>
+                    </div>
+                    <div class="two fields">
+                        <div class="field">
+                            <label>Sexo</label>
+                            <div class="ui selection dropdown">
+                                @Html.HiddenFor(model => model._gender)
+                                <i class="dropdown icon"></i>
+                                <div class="default text"> Masculino</div>
+                                <div class="menu">
+                                    <div class="item" data-value="M" data-text="Male">
+                                        <i class="male icon"></i>
+                                        Masculino
+                                    </div>
+                                    <div class="item" data-value="F" data-text="Female">
+                                        <i class="female icon"></i>
+                                        Femenino
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Fecha de nacimiento</label>
+                            @Html.TextBoxFor(model => model._birthDate,new { @id="date-birth", @type="date" })
+                        </div>
+                      
+                       
+                    </div>
+                    <div class="two fields">
+                        <div class="field">
+                            <label>Provincias</label>
+                            @Html.DropDownListFor(model => model._provinciaId,new SelectList(Model._provincias,"provinciaId","nombre"),new { @class="ui dropdown" })
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui positive right labeled icon button">
+            siguiente
+            <i class="checkmark icon"></i>
+        </div>
+    </div>
+</div>
+
+
+@section  scripts{
+   <script>
+       $(document).ready(function () {
+           setTimeout(function () {
+              
+               $('.user-settings')
+               .modal('show');
+               
+           }, 200);
+
+
+           ////initialize dropdown
+           $('.ui.dropdown')
+                .dropdown();
+
+          
+       });
+
+       function loadImage(fileNode) {
+      
+           if (fileNode.files[0] != null) {
+               var fileReader = new FileReader();
+
+               fileReader.readAsDataURL(fileNode.files[0]);
+
+               fileReader.onload = function (e) {
+                   $("#config-user-image-display").attr("src", e.target.result);
+                   alert(e.target.result);
+               };
+           }
+       }
+       
+  </script>
+
+}
+

@@ -1,0 +1,79 @@
+﻿<!doctype html>
+<html>
+  <head>
+      <!--Encoding-->
+      <meta charset="utf-8" />
+      <!-- for-mobile-apps -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <!--Add more keywords for search engine-->
+      <meta name="keywords" content="Buscar Casa, Search Home, Search House, Inmobiliario, Inmobiliaria Dominicana" />
+
+      <!-- //for-mobile-apps -->
+      <!--fonts load from google-->
+      <link href='//fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+      <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+      <!--//fonts-->
+      <!--Site semantic ui-->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css" rel="stylesheet" />
+      <!--Official Logo shortcut-->
+      <link rel="shortcut icon" href="~/Content/image/OfficialLogo.png" />
+      <link href="~/Content/Site.css" rel="stylesheet" />
+     
+  </head>
+  <body>
+    <header>
+        <div class="ui fluid container">
+            <div class="ui menu">
+                <div class="item">
+
+                </div>
+            </div>
+           
+        </div>
+    </header>
+      <div class="ui fluid container">
+          <div class="ui stackable grid">
+              <!--vertical menu-->
+              <div class="six wide column ">
+                  <div class="ui vertical menu">
+                      <div class="item">
+                          <div class="image">
+                              <img class="ui medium circular image" src="~/Content/image/user.png">
+                          </div>
+                      </div>
+                      <div class="item">
+                          <div class="header">Header</div>
+                          <div class="menu">
+                              <div class="item">
+                                  ########
+                              </div>
+                              <div class="item">
+                                  ########
+                              </div>
+                              <div class="item">
+                                  ########
+                              </div>
+                              <div class="item">
+                                  ########
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="ten wide column" style="height:100%">
+                  <div class="container">
+                      @RenderBody()
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      
+      @Scripts.Render("~/bundles/jquery")
+      <script src="~/Scripts/bootstrap.min.js"></script>
+      <script src="~/semantic/packaged/javascript/semantic.min.js"></script>
+      @Scripts.Render("~/bundles/modernizr")
+      @RenderSection("scripts", required: false)
+  </body>
+</html>

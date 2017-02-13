@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--Encoding-->
+    <meta charset="utf-8" />
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--Add more keywords for search engine-->
+    <meta name="keywords" content="Buscar Casa, Search Home, Search House, Inmobiliario, Inmobiliaria Dominicana" />
+    <link rel="stylesheet" href="~/Content/bootstrap-select.css">
+       
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css" />
+
+    <!-- //for-mobile-apps -->
+    <!--fonts load from google-->
+    <link href='//fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!--//fonts-->	
+
+    <!--semantic ui-->
+    <!--Site semantic ui-->
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/reset.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/site.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/container.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/grid.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/header.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/image.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/menu.css">
+
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/divider.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/dropdown.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/segment.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/button.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/list.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/icon.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/transition.css">
+
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/icon.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/button.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/card.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/label.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/image.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/reveal.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/dimmer.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/rating.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/transition.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/popup.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/step.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/form.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/checkbox.css">
+
+
+    <!--Bootstrap for markup-->
+   
+  
+
+    <link rel="shortcut icon" href="~/Content/image/OfficialLogo.png" />
+    <style>
+        body .container .menu{
+            font-size:4em !important;
+
+        }
+        .main{min-height:100%; 
+      padding-bottom:60px; 
+      box-sizing:border-box;}
+   
+    .menu .item{
+        height:4em;
+    }
+    </style>
+    <title>@ViewBag.Title</title>
+</head>
+<body class="ui fluid container ">
+ 
+    <!--Menu-->
+    <div class="ui top fixed labeled icon menu">
+        <div class="left menu">
+            <a href="@Url.Action("Index","Home")">
+                <img src="~/Content/image/OfficialLogo.png" style="width:103px;height:41px; margin:15px" />
+            </a>
+        </div>
+        
+        <div class="right menu">
+            <a class="ui button primary small" id="btn-iniciarSesion" href="@Url.Action("Login","Account")" style="margin:15px;height:30px">Iniciar Sesión</a>
+        </div>
+    </div>
+    <!-- content-starts-here -->
+    <div class="main" style="height:60%; margin-top:100px">
+        <div class="ui container main">
+            @RenderBody()
+        </div>
+     
+    </div>
+    <!--footer section start-->
+    <footer>
+        <div class="ui vertical bottom fixed footer segment">
+            <div class="ui container">
+                <div class="ui stackable divided equal height stackable grid">
+                    <div class="seven wide column">
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <span style="float:left"><img src="~/Content/image/OfficialLogo.png" width="70" /></span>
+                        <p> &copy; SearchMyHome @DateTime.Now.Year.</p>
+                    </div>
+                    <div class="three wide column">
+                        <h4 class="ui header">SearchMyHome</h4>
+                        <div class="ui link list">
+                            <a href="#" class="item">Ayuda</a>
+                            <a href="#" class="item">Contactenos</a>
+                            <a href="#" class="item">Politicas</a>
+                            <a href="#" class="item">Terminos y Privacidad</a>
+                        </div>
+                    </div>
+                    <div class="three wide column">
+                        <h4 class="ui header">Servicios</h4>
+                        <div class="ui link list">
+                            <a href="#" class="item">Mapa del sitio</a>
+                            <a href="#" class="item">Cofianza y seguridad</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+        
+    <!--footer section end-->
+    <!-- js -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    @Scripts.Render("~/bundles/modernizr")
+   <!--Pending to refactoring-->
+    @Scripts.Render("~/bundles/jquery")
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.9/jquery.mask.min.js"></script>
+    <script src="~/semantic/packaged/javascript/semantic.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -5,6 +5,8 @@ using System.Web;
 using System.Security.Cryptography;
 using System.ComponentModel.DataAnnotations;
 using SearchMyHome.DataAccess;
+using SearchMyHome.Models.Validators;
+using System.Text;
 
 namespace SearchMyHome.Models
 {
@@ -33,11 +35,14 @@ namespace SearchMyHome.Models
 
         public HttpPostedFileBase _profileImage { get; set; }
         public char _gender { get; set; }
+       
         public DateTime _birthDate { get; set; }
         public string _suscriptorGuid { get; set; }
         public IEnumerable<Provincias> _provincias { get; set; }
         public int _provinciaId { get; set; }
-
+        public int _municipioId { get; set; }
+        public string _street { get; set; }
+    
         public UserProfileConfigurationViewModel()
         {   
             ///generate a salt cybertext with 32bytes of length
@@ -48,7 +53,6 @@ namespace SearchMyHome.Models
         public UserProfileConfigurationViewModel(bool NongenerateSalt)
         {
              
-
         }
 
 
@@ -88,7 +92,7 @@ namespace SearchMyHome.Models
             string CyberTextToHashing = mixSaltWithPassword(password, CyberSaltText);
             using (HashAlgorithm hashGenerator = SHA256.Create())
             {
-                byte[] buffer = Convert.FromBase64String(CyberTextToHashing);
+                byte[] buffer = Encoding.ASCII.GetBytes(CyberTextToHashing);
                 byte[] passwordHashStream =  hashGenerator.ComputeHash(buffer);
                 string hashInStringBase64 = Convert.ToBase64String(passwordHashStream);
                 return hashInStringBase64;

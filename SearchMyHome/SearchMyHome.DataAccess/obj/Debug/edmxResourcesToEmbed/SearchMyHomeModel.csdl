@@ -865,6 +865,7 @@
     <NavigationProperty Name="Reunion1" Relationship="SearchMyHomeDBModel.FK_Reunion_SuscriptorSolicitante" FromRole="Suscriptor" ToRole="Reunion" />
     <NavigationProperty Name="TipoSuscripcion" Relationship="SearchMyHomeDBModel.FK_Suscriptor_TipoSuscripcion" FromRole="Suscriptor" ToRole="TipoSuscripcion" />
     <NavigationProperty Name="TipoSuscripcionSuscriptor" Relationship="SearchMyHomeDBModel.FK_TipoSuscripcionSuscriptor_Suscriptor" FromRole="Suscriptor" ToRole="TipoSuscripcionSuscriptor" />
+    <Property Name="sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
   </EntityType>
   <Association Name="FK_AnuncioPublicitario_Suscriptor">
     <End Type="SearchMyHomeDBModel.Suscriptor" Role="Suscriptor" Multiplicity="1" />

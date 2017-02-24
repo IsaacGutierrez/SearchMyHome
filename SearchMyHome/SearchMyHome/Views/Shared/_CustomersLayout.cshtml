@@ -30,16 +30,23 @@
     <!-- Following Menu -->
     <div class="ui large top fixed hidden menu">
         <div class="ui container">
-            <a class="active item">Home</a>
-            <a class="item">Work</a>
-            <a class="item">Company</a>
-            <a class="item">Careers</a>
+            <div class="item">
+                <div class="field">
+                    <div class="ui search">
+                        <div class="ui icon input">
+                            <input class="prompt" type="text" id="search-main-input" onFocus="geolocate()" placeholder="Dirección">
+                            <i class="search icon"></i>
+                        </div>
+                        <div class="results"></div>
+                    </div>
+                </div>
+            </div>
             <div class="right menu">
                 <div class="item">
-                    <a class="ui button">Iniciar Sesión</a>
+                    <a class="ui button primary">Iniciar Sesión</a>
                 </div>
                 <div class="item">
-                    <a class="ui primary button">Registrarse</a>
+                    <a class="ui primary button danger">Registrarse</a>
                 </div>
             </div>
         </div>
@@ -47,10 +54,9 @@
 
     <!-- Sidebar Menu -->
     <div class="ui vertical inverted sidebar menu">
-        <a class="active item">Home</a>
-        <a class="item">Work</a>
-        <a class="item">Company</a>
-        <a class="item">Careers</a>
+        <a class="active item">Inicio</a>
+        <a class="item">Buscar Inmueble</a>
+        <a class="item">Planes suscripción</a>
         <a class="item">Iniciar Sesión</a>
         <a class="item">Registrarse</a>
     </div>

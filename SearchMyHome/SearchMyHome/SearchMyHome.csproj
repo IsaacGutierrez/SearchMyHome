@@ -48,6 +48,14 @@
       <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -174,6 +182,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UserAdministrationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -182,6 +191,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\UserProfileConfigurationViewModel.cs" />
+    <Compile Include="Models\Validators\EmailDuplicatedAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -198,6 +208,7 @@
     <Content Include="Content\flexslider.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\homesite.css" />
     <Content Include="Content\image\1.jpg" />
     <Content Include="Content\image\1.png" />
     <Content Include="Content\image\2.png" />
@@ -289,6 +300,8 @@
     <Content Include="Content\image\e7.jpg" />
     <Content Include="Content\image\e8.jpg" />
     <Content Include="Content\image\e9.jpg" />
+    <Content Include="Content\image\ed1.jpg" />
+    <Content Include="Content\image\ed2.jpg" />
     <Content Include="Content\image\f1.jpg" />
     <Content Include="Content\image\f2.jpg" />
     <Content Include="Content\image\f3.jpg" />
@@ -384,11 +397,14 @@
     <Content Include="Content\image\tick.png" />
     <Content Include="Content\image\user.png" />
     <Content Include="Content\image\world_map.png" />
+    <Content Include="Content\JCarousel\jcarousel.connected-carousels.css" />
     <Content Include="Content\jquery-ui1.css" />
     <Content Include="Content\jquery.uls.css" />
     <Content Include="Content\jquery.uls.grid.css" />
     <Content Include="Content\jquery.uls.lcd.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\UserConfiguration.css" />
+    <Content Include="Content\UserProfileConfiguration.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -487,6 +503,8 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\easyResponsiveTabs.js" />
     <Content Include="Scripts\filedrag.js" />
+    <Content Include="Scripts\JCarousel\JCarousel.js" />
+    <Content Include="Scripts\JCarousel\jcarousel.connected-carousels.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -498,6 +516,8 @@
     <Content Include="Scripts\jquery.knob.js" />
     <Content Include="Scripts\jquery.leanModal.min.js" />
     <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.1.min.js" />
     <Content Include="Scripts\jquery.ui.widget.js" />
     <Content Include="Scripts\jquery.uls.core.js" />
     <Content Include="Scripts\jquery.uls.data.js" />
@@ -811,6 +831,7 @@
     <Content Include="Views\Account\EmailConfirmationSended.cshtml" />
     <Content Include="Views\Account\ConfigUserProfile.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\UserAdministration\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

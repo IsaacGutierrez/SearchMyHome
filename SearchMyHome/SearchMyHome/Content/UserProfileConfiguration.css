@@ -1,0 +1,19 @@
+﻿
+.hidden-content{
+    display:none;
+}
+
+.display-content{
+    display:flex;
+    display:-webkit-flex;
+}
+
+.ui.modal .modal-footer-config{
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    text-align: right;
+}
+
+.ui.modal .modal-footer-config > .button {
+  margin-left: 0.75em;
+}

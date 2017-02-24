@@ -9,28 +9,34 @@
 <br/>
 <div class="ui stackable grid">
     <div class="ui eight wide column segment">
-        <div class="ui form">
-            <div class="field">
-                <label>Nombre Usuario</label>
-                <input type="text" placeholder="Nombre usuario" />
-            </div>
-            <div class="field">
-                <label> Password</label>
-                <input type="password" placeholder="Password" />
-            </div>
-            <div class="field">
-                <div class="ui slider checkbox">
-                    <input type="checkbox" name="RemenberMe"/>
-                    <label>Recordame?</label>
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="ui form">
+                <div class="field">
+                    <label>Nombre Usuario</label>
+                    @Html.TextBoxFor(model => model._UserName)
+                 </div>
+                <div class="field">
+                    <label> Password</label>
+                    @Html.TextBoxFor(model => model._Password,new {@placeholder="Password",@type="Password" })
                 </div>
-            </div>
-            <div class="field">
-                <div class="pull-left">
-                    <button class="ui button primary">Iniciar Sesión</button>
+                <div class="field">
+                    <div class="ui slider checkbox">
+                      @Html.CheckBoxFor(model => model._RememberMe)
+                        <label>Recordame?</label>
+                    </div>
                 </div>
+                <div class="field">
+                    <div class="pull-left">
+                       <input type="submit" class="ui button primary" value="Iniciar Sesión" />
+                    </div>
+                </div>
+
             </div>
-           
-        </div>
+        }
+        
     </div>
    
 </div>

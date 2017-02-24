@@ -224,6 +224,7 @@
     <Property Name="password" Type="varchar" MaxLength="70" />
     <Property Name="salt" Type="varchar" MaxLength="70" />
     <Property Name="direccionId" Type="int" />
+    <Property Name="sexo" Type="char" MaxLength="1" />
     <Property Name="fechaNacimiento" Type="datetime" />
     <Property Name="numeroTelefonico" Type="varchar" MaxLength="20" />
     <Property Name="correoElectronico" Type="varchar" MaxLength="50" />

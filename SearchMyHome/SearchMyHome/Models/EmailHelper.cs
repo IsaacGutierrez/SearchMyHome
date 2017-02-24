@@ -18,18 +18,22 @@ namespace SearchMyHome.Models
         private MailMessage _message;
         private Thread _SendingEmailThread;
 
-        public EmailHelper(string HtmlBody, string mailRecipient)
+        public EmailHelper(string mailRecipient, HttpContextBase context,string UserGuid)
         {
-            this._htmlBody = HtmlBody;
-            this._recipient = mailRecipient;
+             this._recipient = mailRecipient;
             this._message = new MailMessage();
             this._message.From = new MailAddress(ConfigurationManager.AppSettings["SearchMyHomeEmailAccount"]);
             this._message.To.Add(new MailAddress(mailRecipient));
             this._message.Subject = "SearchMyHome-Confirmación de suscriptor";
-            this._message.Body = HtmlBody;
             this._message.IsBodyHtml = true;
 
-          
+
+            string link = "https://localhost:44345/Account/EmailConfirmation?GuidCode=" + UserGuid;
+
+            string fileUrl = context.Server.MapPath(@"~/Content/EmailConfirmation.html");
+            string ConfirmationMail = System.IO.File.ReadAllText(fileUrl);
+            this._message.Body = ConfirmationMail.Replace("{LINK-CONFIRMATION}", link);
+
         }
 
         private void SetupMailSendingThread() {

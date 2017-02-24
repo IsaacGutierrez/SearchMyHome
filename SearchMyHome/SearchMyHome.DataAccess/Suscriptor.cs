@@ -41,6 +41,7 @@ namespace SearchMyHome.DataAccess
         public string fotoPerfilUrl { get; set; }
         public Nullable<bool> emailConfirmation { get; set; }
         public Nullable<bool> perfilConfigurated { get; set; }
+        public string sexo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AnuncioPublicitario> AnuncioPublicitario { get; set; }

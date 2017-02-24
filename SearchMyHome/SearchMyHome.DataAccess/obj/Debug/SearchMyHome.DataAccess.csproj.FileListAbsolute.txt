@@ -8,3 +8,13 @@ C:\Users\Isaac Gutierrez\documents\visual studio 2015\Projects\SearchMyHome\Sear
 C:\Users\Isaac Gutierrez\documents\visual studio 2015\Projects\SearchMyHome\SearchMyHome.DataAccess\obj\Debug\SearchMyHome.DataAccess.dll
 C:\Users\Isaac Gutierrez\documents\visual studio 2015\Projects\SearchMyHome\SearchMyHome.DataAccess\obj\Debug\SearchMyHome.DataAccess.pdb
 C:\Users\Isaac Gutierrez\documents\visual studio 2015\Projects\SearchMyHome\SearchMyHome.DataAccess\obj\Debug\SearchMyHome.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.DataAccess\bin\Debug\SearchMyHome.DataAccess.dll.config
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.DataAccess\bin\Debug\SearchMyHome.DataAccess.dll
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.DataAccess\bin\Debug\SearchMyHome.DataAccess.pdb
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.DataAccess\obj\Debug\SearchMyHome.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.DataAccess\obj\Debug\SearchMyHome.DataAccess.dll
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.DataAccess\obj\Debug\SearchMyHome.DataAccess.pdb

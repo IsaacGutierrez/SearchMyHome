@@ -3,10 +3,15 @@
     Layout = "~/Views/Shared/_CustomersLayout.cshtml";
 }
 
-<div class="ui inverted vertical masthead center aligned segment">
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+ 
+<link href="~/Content/JCarousel/jcarousel.connected-carousels.css" rel="stylesheet" />
+<link href="~/Content/homesite.css" rel="stylesheet" />
+
+<div class="ui  vertical masthead center aligned segment">
     <!--MENU HEADER-->
     <div class="ui container">
-        <div class="ui large secondary inverted pointing menu">
+        <div class="ui large secondary pointing menu">
             <a class="toc item">
                 <i class="sidebar icon"></i>
             </a>
@@ -14,8 +19,26 @@
             <a class="item">Buscar Inmuebles</a>
             <a class="item">Planes de suscripción</a>
             <div class="right item">
-                <a class="ui inverted button" >Iniciar Sesión</a>
-                <a class="ui inverted button" href="@Url.Action("Register","Account")">Registrarse</a>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="ui inline dropdown ">
+            <div class="text">
+                <img class="ui avatar image" src="~/Content/semantic-ui/avatar/tom.jpg"> @User.Identity.Name
+            </div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+                <div class="item">Dashboard</div>
+                <div class="item"> <a href="@Url.Action("logOut","Account")">Cerrar sesión</a> </div>
+            </div>
+        </div>
+
+    }
+    else
+    {
+                    <a class="ui primary button" href="@Url.Action("Login","Account")">Iniciar sesión</a>
+                    <a class="ui primary button" href="@Url.Action("Register","Account")">Registrarse</a>
+    }
+              
             </div>
         </div>
     </div>
@@ -24,8 +47,10 @@
     <div class="ui container" style="margin-top:15px">
         <div class="ui stackable grid">
             <div class="ui eight wide column">
+                <!--Official Logo-->
+                <img  src="~/Content/image/OfficialLogo.png" class="image-left" width="180"/>
                 <!--MAIN SEARCH MENU-->
-                <div class="ui inverted ten wide segment">
+                <div class="ui  ten wide segment">
                     <div class="ui form">
                         <div class="field">
                             <div class="ui search">
@@ -43,17 +68,42 @@
 
             <div class="ui eight wide column">
                 <div class="ui fluid container">
-                    <div class="ui grid">
-                        <div class="ui inverted six wide segment">
-                            <div class="ui text">
-                                <h1 class="ui  inverted header">
-                                    <img src="@Url.Content("~/Content/image/OfficialLogo.png")" />
-                                </h1>
-                                <h2>Do whatever you want when you want to.</h2>
-                                <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
+                    <!--JCarousel-->
+                    <div class="connected-carousels">
+                        <div class="stage">
+                            <div class="carousel carousel-stage">
+                                <ul>
+                                    <li><img src="~/Content/image/ed2.jpg" width="600" height="400" alt=""></li>
+                                    <li><img src="~/Content/image/r10.jpg" width="600" height="400" alt=""></li>
+                                    <li><img src="~/Content/image/r9.jpg" width="600" height="400" alt=""></li>
+                                    <li><img src="~/Content/image/r8.jpg" width="600" height="400" alt=""></li>
+                                    <li><img src="~/Content/image/ed1.jpg" width="600" height="400" alt=""></li>
+                                    <li><img src="~/Content/image/r1.jpg" width="600" height="400" alt=""></li>
+                                </ul>
+                            </div>
+                            <p class="photo-credits">
+                                 <a href="http://www.mw-fotografie.de">$RD 1,000,000</a>
+                            </p>
+                            <a href="#" class="prev prev-stage"><span>&lsaquo;</span></a>
+                            <a href="#" class="next next-stage"><span>&rsaquo;</span></a>
+                        </div>
+
+                        <div class="navigation">
+                            <a href="#" class="prev prev-navigation">&lsaquo;</a>
+                            <a href="#" class="next next-navigation">&rsaquo;</a>
+                            <div class="carousel carousel-navigation">
+                                <ul>
+                                    <li><img src="~/Content/image/ed2.jpg" width="50" height="50" alt=""></li>
+                                    <li><img src="~/Content/image/r10.jpg" width="50" height="50" alt=""></li>
+                                    <li><img src="~/Content/image/r9.jpg" width="50" height="50" alt=""></li>
+                                    <li><img src="~/Content/image/r8.jpg" width="50" height="50" alt=""></li>
+                                    <li><img src="~/Content/image/ed1.jpg" width="50" height="50" alt=""></li>
+                                    <li><img src="~/Content/image/r1.jpg" width="50" height="50" alt=""></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
+                    <!--JCarousel-->
                 </div>
             </div>
         </div>
@@ -112,6 +162,10 @@
 <script type="text/javascript" src="~/Content/semantic-ui/components/dimmer.js"></script>
 <script type="text/javascript" src="~/Content/semantic-ui/components/rating.js"></script>
 <script type="text/javascript" src="~/Content/semantic-ui/components/transition.js"></script>
+
+<!--JCarouse-->
+<script src="~/Scripts/JCarousel/JCarousel.js"></script>
+<script src="~/Scripts/JCarousel/jcarousel.connected-carousels.js"></script>
 <script>
   $(document)
     .ready(function() {
@@ -144,66 +198,43 @@
         on: 'hover'
       });
       $('.star.rating')
-        .rating()
-      ;
+        .rating();
       $('.card .dimmer')
         .dimmer({
           on: 'hover'
-        })
-      ;
-    })
-  ;
+        });
+
+      $('.ui.dropdown')
+               .dropdown();
+    });
 </script>
 
-
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMcn-JEubU5OtrOyRVYYxdyEALtwEJ6DQ&libraries=places"></script>
 
     <script>
         // This example displays an address form, using the autocomplete feature
         // of the Google Places API to help users fill in the information.
 
         var placeSearch, autocomplete;
-        var componentForm = {
-            street_number: 'short_name',
-            route: 'long_name',
-            locality: 'long_name',
-            administrative_area_level_1: 'short_name',
-            country: 'long_name',
-            postal_code: 'short_name'
-        };
+       
 
         function initAutocomplete() {
             // Create the autocomplete object, restricting the search to geographical
             // location types.
             autocomplete = new google.maps.places.Autocomplete(
                 (document.getElementById('search-main-input')),
-                { types: ['geocode'] });
+                {
+                    componentRestrictions: { country: "do" },
+                    types: ['geocode']
+                });
+
 
             // When the user selects an address from the dropdown, populate the address
             // fields in the form.
-            autocomplete.addListener('place_changed', fillInAddress);
+            autocomplete.addListener('place_changed', getPlace());
+
+         
         }
 
-        function fillInAddress() {
-            // Get the place details from the autocomplete object.
-            var place = autocomplete.getPlace();
-
-            for (var component in componentForm) {
-                document.getElementById(component).value = '';
-                document.getElementById(component).disabled = false;
-            }
-
-            // Get each component of the address from the place details
-            // and fill the corresponding field on the form.
-
-            for (var i = 0; i < place.address_components.length; i++) {
-                var addressType = place.address_components[i].types[0];
-                if (componentForm[addressType]) {
-                    var val = place.address_components[i][componentForm[addressType]];
-                    document.getElementById(addressType).value = val;
-                }
-            }
-        }
 
         // Bias the autocomplete object to the user's geographical location,
         // as supplied by the browser's 'navigator.geolocation' object.
@@ -218,10 +249,15 @@
                         center: geolocation,
                         radius: position.coords.accuracy
                     });
+                   
                     autocomplete.setBounds(circle.getBounds());
                 });
             }
         }
-    </script>
 
+        function getPlace() {
+            var place = autocomplete.getPlace();
+        }
+    </script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMcn-JEubU5OtrOyRVYYxdyEALtwEJ6DQ&libraries=places&callback=initAutocomplete"></script>
     }

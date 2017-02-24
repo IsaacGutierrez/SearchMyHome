@@ -229,6 +229,7 @@
           <Property Name="password" Type="varchar" MaxLength="70" />
           <Property Name="salt" Type="varchar" MaxLength="70" />
           <Property Name="direccionId" Type="int" />
+          <Property Name="sexo" Type="char" MaxLength="1" />
           <Property Name="fechaNacimiento" Type="datetime" />
           <Property Name="numeroTelefonico" Type="varchar" MaxLength="20" />
           <Property Name="correoElectronico" Type="varchar" MaxLength="50" />
@@ -1776,6 +1777,7 @@
           <NavigationProperty Name="Reunion1" Relationship="SearchMyHomeDBModel.FK_Reunion_SuscriptorSolicitante" FromRole="Suscriptor" ToRole="Reunion" />
           <NavigationProperty Name="TipoSuscripcion" Relationship="SearchMyHomeDBModel.FK_Suscriptor_TipoSuscripcion" FromRole="Suscriptor" ToRole="TipoSuscripcion" />
           <NavigationProperty Name="TipoSuscripcionSuscriptor" Relationship="SearchMyHomeDBModel.FK_TipoSuscripcionSuscriptor_Suscriptor" FromRole="Suscriptor" ToRole="TipoSuscripcionSuscriptor" />
+          <Property Name="sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <Association Name="FK_AnuncioPublicitario_Suscriptor">
           <End Type="SearchMyHomeDBModel.Suscriptor" Role="Suscriptor" Multiplicity="1" />
@@ -2197,6 +2199,7 @@
           <EntitySetMapping Name="Suscriptor">
             <EntityTypeMapping TypeName="SearchMyHomeDBModel.Suscriptor">
               <MappingFragment StoreEntitySet="Suscriptor">
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
                 <ScalarProperty Name="perfilConfigurated" ColumnName="perfilConfigurated" />
                 <ScalarProperty Name="emailConfirmation" ColumnName="emailConfirmation" />
                 <ScalarProperty Name="fotoPerfilUrl" ColumnName="fotoPerfilUrl" />

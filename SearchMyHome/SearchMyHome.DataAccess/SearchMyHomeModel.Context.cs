@@ -18,6 +18,7 @@ namespace SearchMyHome.DataAccess
         public SearchMyHomeDBEntities()
             : base("name=SearchMyHomeDBEntities")
         {
+            
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

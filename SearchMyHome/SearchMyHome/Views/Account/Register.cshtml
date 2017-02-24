@@ -55,24 +55,29 @@
                     <div class="ui segment" id="local-register-segment">
                         <div class="one field">
                             <div class="field">
-                                <label>Nombres</label>
-                                @Html.TextBoxFor(model => model.Names, new { @placeHolder = "Nombres" })
-                                @Html.ValidationMessageFor(model => model.Names)
-                            </div>
-                            <div class="field">
-                                <label>Apellidos</label>
-                                @Html.TextBoxFor(model => model.Lastnames,new {@placeHolder="Apellidos" })
-                                @Html.ValidationMessageFor(model => model.Lastnames)
-                            </div>
-                            <div class="field">
-                                <label>Numero Telefónico</label>
-                                @Html.TextBoxFor(model => model.PhoneNumber,new { @Class="phone"  })
-                                @Html.ValidationMessageFor(model => model.PhoneNumber)
-                            </div>
-                            <div class="field">
                                 <label>Correo electrónico</label>
                                 @Html.TextBoxFor(model => model.Email)
+                                <div class="error-custom-message">@Html.ValidationMessageFor(model => model.Email)</div>
                             </div>
+                            <div class="field">
+                                <label>Nombres</label>
+                                @Html.TextBoxFor(model => model.Names, new { @placeHolder = "Nombres" })
+                                <div class="error-custom-message">@Html.ValidationMessageFor(model => model.Names)</div>
+                                    
+                                </div>
+                            <div class="field">
+                                <label>Apellidos</label>
+                                @Html.TextBoxFor(model => model.Lastnames,new { @placeHolder = "Apellidos" } )
+                                <div class="error-custom-message">@Html.ValidationMessageFor(model => model.Lastnames)</div>
+                                
+                            </div>
+                            <div class="field">
+                                <label>Numero telefónico</label>
+                                @Html.TextBoxFor(model => model.PhoneNumber,new { @Class="phone"  })
+                                <div class="error-custom-message">@Html.ValidationMessageFor(model => model.PhoneNumber)</div>
+                                
+                            </div>
+                           
                             <div class="field">
                                 <input type="submit" class="ui fluid button primary" id="btn-register" value="Registrarse" />
                             </div>
@@ -90,15 +95,35 @@
 
 @section scripts
 {
+   @Scripts.Render("~/bundles/jqueryval")
     <script>
         $(document).ready(function () {
             $(".phone").mask("(999)-999-9999");
+            addStyleToValidationError();
 
             //loading effect to register segment
             $("#btn-register").click(function () {
                 
                 $("#local-register-segment").addClass("loading");
             });
+
+
+            function addStyleToValidationError() {
+
+                var errorMessageCollection = $(".error-custom-message");
+
+                $.each(errorMessageCollection, function (index, node) {
+
+                    if ($(node).children().html() != "") {
+
+                        $(node).addClass("ui pointing red basic label ");
+                    }
+
+                });
+            }
+           
+           
+
         });
     </script>
 }

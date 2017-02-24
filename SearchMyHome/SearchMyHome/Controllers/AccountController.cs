@@ -36,10 +36,35 @@ namespace SearchMyHome.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model, string returnUrl)
         {
+             if (ModelState.IsValid)
+            {
+                Suscriptor suscriptor = _entities.Suscriptor
+                                       .Where(entity => entity.nombreUsuario == model._UserName)
+                                        .SingleOrDefault();
+
+                string passwordToValidate = UserProfileConfigurationViewModel
+                                               .GeneratePasswordHash(model._Password,suscriptor.salt);
+
+                if (passwordToValidate == suscriptor.password)
+                {
+                    model._Name = suscriptor.nombres;
+                    LogIn(model);
+                    return RedirectToAction("Index","Home");
+                }
+
+                ModelState.AddModelError("Password","Nombre de usuario o password incorecto");
+
+            }
 
             return View();
         }
         //
+
+        public ActionResult LogOut()
+        {
+            logOut();
+            return RedirectToAction("Index","Home");
+        }
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
@@ -71,13 +96,9 @@ namespace SearchMyHome.Controllers
                 _entities.SaveChanges();
 
 
-                string link = "https://localhost:44345/Account/EmailConfirmation?GuidCode=" + model.getSuscriptorGuid().ToString();
-
-                string fileUrl = HttpContext.Server.MapPath(@"~/Content/EmailConfirmation.html");
-                string ConfirmationMail = System.IO.File.ReadAllText(fileUrl);
-                string replaced = ConfirmationMail.Replace("{LINK-CONFIRMATION}", link);
-                EmailHelper emailSender = new EmailHelper(replaced, model.Email);
-
+                EmailHelper emailSender = new
+                              EmailHelper(model.Email,HttpContext,suscriptor.SuscriptorGUID);
+                /////send the email in other worker thread
                 emailSender.SendEmailAsync();
 
 
@@ -92,6 +113,7 @@ namespace SearchMyHome.Controllers
         [AllowAnonymous]
         public ActionResult EmailConfirmation(string GuidCode)
         {
+          
             Suscriptor suscriptor = _entities.Suscriptor
                                     .Where(model => model.SuscriptorGUID
                                     == GuidCode).FirstOrDefault();
@@ -122,6 +144,9 @@ namespace SearchMyHome.Controllers
                 model._email = suscriptor.correoElectronico;
                 model._phoneNumber = suscriptor.numeroTelefonico;
                 model._provincias = _entities.Provincias.AsEnumerable();
+                model._suscriptorGuid = suscriptor.SuscriptorGUID;
+                model._email = suscriptor.correoElectronico;
+
                 return View(model);
             }
 
@@ -133,19 +158,71 @@ namespace SearchMyHome.Controllers
         [HttpPost]
         public ActionResult ConfigUserProfile(UserProfileConfigurationViewModel model)
         {
+            if (ModelState.IsValid) {
+                int SuscripcionBasica = 1;
             Suscriptor suscriptorAConfig = _entities.Suscriptor
                       .Where(suscriptor => suscriptor.SuscriptorGUID == model._suscriptorGuid)
                       .Single();
-            if (suscriptorAConfig != null)
-            {
-                suscriptorAConfig.nombres = model._name;
-                suscriptorAConfig.apellidos = model._lastname;
-                suscriptorAConfig.correoElectronico = model._email;
-                //suscriptorAConfig.fotoPerfilUrl = ""
 
+                     if (suscriptorAConfig != null)
+                 {
+                    suscriptorAConfig.nombres = model._name;
+                    suscriptorAConfig.apellidos = model._lastname;
+                    suscriptorAConfig.emailConfirmation = true;
+                    suscriptorAConfig.password = UserProfileConfigurationViewModel
+                                                         .GeneratePasswordHash(model._password,model._salt);
+                    suscriptorAConfig.nombreUsuario = model._userName;
+                    suscriptorAConfig.sexo = model._gender.ToString();
+                    suscriptorAConfig.salt = model._salt;
+                    suscriptorAConfig.perfilConfigurated = true;
+                    suscriptorAConfig.numeroTelefonico = model._phoneNumber;
+                    suscriptorAConfig.tipoSuscripcionId = SuscripcionBasica;
+                 
+                    _entities.SaveChanges();
 
+                    LoginViewModel LoginModel = new LoginViewModel();
+                    LoginModel._UserName = model._userName;
+                    LoginModel._Name = model._name;
+                    LogIn(LoginModel);
+
+                    return RedirectToAction("Index","UserAdministration");
+                   }
             }
-            return View();
+            model._provincias = _entities.Provincias.AsEnumerable();
+            return View(model);
+        }
+
+        [AllowAnonymous]
+        public JsonResult GetMunicipios(int ProvinciaId)
+        {
+            var result = _entities.Municipios.Where(model => model.provinciaId == ProvinciaId)
+                .Select(model => new {
+                    value = model.municipioId,
+                    name = model.nombre
+            });
+
+            return Json(result,JsonRequestBehavior.AllowGet);
+        }
+
+        /// <summary>
+        /// requires: LoginViewModel with user information
+        /// effect: set the claims for authentication
+        /// </summary>
+        /// <param name="model">LoginViewModel with user information</param>
+        private void LogIn(LoginViewModel model)
+        {
+            ClaimsIdentity identity = new ClaimsIdentity(DefaultAuthenticationTypes.ApplicationCookie);
+            identity.AddClaim(new Claim(ClaimTypes.Name, model._Name));
+            identity.AddClaim(new Claim(ClaimTypes.NameIdentifier,model._UserName));
+            identity.AddClaim(new Claim(ClaimTypes.IsPersistent,model._RememberMe.ToString()));
+            HttpContext.GetOwinContext().Authentication.SignIn(identity);
+
+        }
+
+
+        private void logOut()
+        {
+            HttpContext.GetOwinContext().Authentication.SignOut();
         }
 
 

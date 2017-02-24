@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using SearchMyHome.Models.Validators;
 
 namespace SearchMyHome.Models
 {
@@ -49,18 +50,17 @@ namespace SearchMyHome.Models
 
     public class LoginViewModel
     {
-        [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
-        public string Email { get; set; }
+        
+        public string _UserName { get; set; }
 
+        public string  _Name { get; set; }
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
-        public string Password { get; set; }
+        public string _Password { get; set; }
 
         [Display(Name = "Remember me?")]
-        public bool RememberMe { get; set; }
+        public bool _RememberMe { get; set; }
     }
 
     public class PreRegisterViewModel
@@ -72,9 +72,11 @@ namespace SearchMyHome.Models
 
         [Required(ErrorMessage = "Este campo es requerido")]
         public string PhoneNumber { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
+        [EmailDuplicated(ErrorMessage = "Este correo electronico ya se encuentra registrado")]
         public string Email { get; set; }
 
         private Guid SuscriptorGuid;

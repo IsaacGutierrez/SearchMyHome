@@ -1,0 +1,13 @@
+﻿.configuration-info-user{
+    overflow:scroll;
+    max-height:450px;
+    min-height:450px;
+}
+
+.section-hide {
+    display:none;
+}
+
+.error-message{
+    color:red;
+}

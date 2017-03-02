@@ -275,6 +275,7 @@
     <EntitySetMapping Name="TipoServicios">
       <EntityTypeMapping TypeName="SearchMyHomeDBModel.TipoServicios">
         <MappingFragment StoreEntitySet="TipoServicios">
+          <ScalarProperty Name="externalId" ColumnName="externalId" />
           <ScalarProperty Name="tipoServicioId" ColumnName="tipoServicioId" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -284,6 +285,7 @@
     <EntitySetMapping Name="TipoSuscripcion">
       <EntityTypeMapping TypeName="SearchMyHomeDBModel.TipoSuscripcion">
         <MappingFragment StoreEntitySet="TipoSuscripcion">
+          <ScalarProperty Name="externalId" ColumnName="externalId" />
           <ScalarProperty Name="tipoSuscripcionId" ColumnName="tipoSuscripcionId" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -307,6 +309,8 @@
     <EntitySetMapping Name="Suscriptor">
       <EntityTypeMapping TypeName="SearchMyHomeDBModel.Suscriptor">
         <MappingFragment StoreEntitySet="Suscriptor">
+          <ScalarProperty Name="creditCardExpiredDate" ColumnName="creditCardExpiredDate" />
+          <ScalarProperty Name="stripeCustomerId" ColumnName="stripeCustomerId" />
           <ScalarProperty Name="sexo" ColumnName="sexo" />
           <ScalarProperty Name="perfilConfigurated" ColumnName="perfilConfigurated" />
           <ScalarProperty Name="emailConfirmation" ColumnName="emailConfirmation" />

@@ -42,7 +42,11 @@ namespace SearchMyHome.Models
         public int _provinciaId { get; set; }
         public int _municipioId { get; set; }
         public string _street { get; set; }
-    
+        public string _stripePublishKey { get; set; }
+
+        public int _suscriptionSelectedId { get; set; }
+        public string stripeToken { get; set; }
+
         public UserProfileConfigurationViewModel()
         {   
             ///generate a salt cybertext with 32bytes of length

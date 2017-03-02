@@ -26,6 +26,7 @@ namespace SearchMyHome.DataAccess
         public string descripcion { get; set; }
         public Nullable<decimal> precio { get; set; }
         public Nullable<int> periodoId { get; set; }
+        public string externalId { get; set; }
     
         public virtual Periodos Periodos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

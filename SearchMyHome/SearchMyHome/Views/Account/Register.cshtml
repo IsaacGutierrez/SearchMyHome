@@ -56,24 +56,24 @@
                         <div class="one field">
                             <div class="field">
                                 <label>Correo electrónico</label>
-                                @Html.TextBoxFor(model => model.Email)
+                                @Html.TextBoxFor(model => model.Email, new {@placeholder = "Correo electrónico", @onfocus= "ClearErrorHandlerWithFocus()", @Required = "Required" })
                                 <div class="error-custom-message">@Html.ValidationMessageFor(model => model.Email)</div>
                             </div>
                             <div class="field">
                                 <label>Nombres</label>
-                                @Html.TextBoxFor(model => model.Names, new { @placeHolder = "Nombres" })
+                                @Html.TextBoxFor(model => model.Names, new { @placeHolder = "Nombres", @onfocus = "ClearErrorHandlerWithFocus()",@Required= "Required" })
                                 <div class="error-custom-message">@Html.ValidationMessageFor(model => model.Names)</div>
                                     
                                 </div>
                             <div class="field">
                                 <label>Apellidos</label>
-                                @Html.TextBoxFor(model => model.Lastnames,new { @placeHolder = "Apellidos" } )
+                                @Html.TextBoxFor(model => model.Lastnames,new { @placeHolder = "Apellidos", @onfocus = "ClearErrorHandlerWithFocus()", @Required = "Required" } )
                                 <div class="error-custom-message">@Html.ValidationMessageFor(model => model.Lastnames)</div>
                                 
                             </div>
                             <div class="field">
                                 <label>Numero telefónico</label>
-                                @Html.TextBoxFor(model => model.PhoneNumber,new { @Class="phone"  })
+                                @Html.TextBoxFor(model => model.PhoneNumber,new { @Class="phone", @onfocus = "ClearErrorHandlerWithFocus()", @Required = "Required" })
                                 <div class="error-custom-message">@Html.ValidationMessageFor(model => model.PhoneNumber)</div>
                                 
                             </div>
@@ -90,23 +90,25 @@
         
     </div>
 
-
-
-
 @section scripts
 {
    @Scripts.Render("~/bundles/jqueryval")
     <script>
         $(document).ready(function () {
             $(".phone").mask("(999)-999-9999");
+
             addStyleToValidationError();
 
             //loading effect to register segment
             $("#btn-register").click(function () {
+                $("form:first")
+                    .submit(function (e) {
+                       
+                        $("#local-register-segment").addClass("loading");
+                    });
+               
                 
-                $("#local-register-segment").addClass("loading");
             });
-
 
             function addStyleToValidationError() {
 
@@ -116,14 +118,17 @@
 
                     if ($(node).children().html() != "") {
 
-                        $(node).addClass("ui pointing red basic label ");
+                        $(node).addClass("ui pointing red basic label");
                     }
 
                 });
             }
-           
-           
-
         });
+
+        function ClearErrorHandlerWithFocus() {
+            $("input[type='text']")
+                .next()
+                .css("display", "none");
+        }
     </script>
 }

@@ -309,6 +309,7 @@
     <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Servicios" Relationship="Self.FK_Servicios_TipoServicios" FromRole="TipoServicios" ToRole="Servicios" />
+    <Property Name="externalId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="TipoSuscripcion">
     <Key>
@@ -322,6 +323,7 @@
     <NavigationProperty Name="Periodos" Relationship="Self.FK_TipoSuscripcion_Periodos" FromRole="TipoSuscripcion" ToRole="Periodos" />
     <NavigationProperty Name="TipoSuscripcionSuscriptor" Relationship="Self.FK_TipoSuscripcionSuscriptor_TipoSuscripcion" FromRole="TipoSuscripcion" ToRole="TipoSuscripcionSuscriptor" />
     <NavigationProperty Name="Suscriptor" Relationship="SearchMyHomeDBModel.FK_Suscriptor_TipoSuscripcion" FromRole="TipoSuscripcion" ToRole="Suscriptor" />
+    <Property Name="externalId" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="TipoSuscripcionSuscriptor">
     <Key>
@@ -866,6 +868,8 @@
     <NavigationProperty Name="TipoSuscripcion" Relationship="SearchMyHomeDBModel.FK_Suscriptor_TipoSuscripcion" FromRole="Suscriptor" ToRole="TipoSuscripcion" />
     <NavigationProperty Name="TipoSuscripcionSuscriptor" Relationship="SearchMyHomeDBModel.FK_TipoSuscripcionSuscriptor_Suscriptor" FromRole="Suscriptor" ToRole="TipoSuscripcionSuscriptor" />
     <Property Name="sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="stripeCustomerId" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="creditCardExpiredDate" Type="DateTime" Precision="3" />
   </EntityType>
   <Association Name="FK_AnuncioPublicitario_Suscriptor">
     <End Type="SearchMyHomeDBModel.Suscriptor" Role="Suscriptor" Multiplicity="1" />

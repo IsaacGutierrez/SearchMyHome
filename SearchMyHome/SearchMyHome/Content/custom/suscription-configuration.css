@@ -1,0 +1,30 @@
+﻿
+.header-subscription {
+    padding:20px;
+    text-align:center;
+    font-size:3em;
+}
+
+.header-basic{
+    background-color:#f3f3f3;
+}
+
+.header-standard{
+    background-color:#f3f3f3;
+}
+
+.header-premium {
+    background-color:red;
+}
+.header-inmobiliaria {
+    background-color:blue;
+}
+
+.pull-right{
+    float:right;
+}
+
+.button-option-container {
+    position:absolute;
+    left:5%;
+}

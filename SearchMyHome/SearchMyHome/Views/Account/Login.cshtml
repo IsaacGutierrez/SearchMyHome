@@ -16,7 +16,8 @@
             <div class="ui form">
                 <div class="field">
                     <label>Nombre Usuario</label>
-                    @Html.TextBoxFor(model => model._UserName)
+                    @Html.TextBoxFor(model => model._UserName,new { @placeholder="Nombre Usuario"})
+                    
                  </div>
                 <div class="field">
                     <label> Password</label>
@@ -28,11 +29,16 @@
                         <label>Recordame?</label>
                     </div>
                 </div>
-                <div class="field">
-                    <div class="pull-left">
-                       <input type="submit" class="ui button primary" value="Iniciar Sesión" />
+                <div class="two fields">
+                    <div class="field pull-left">
+                        <input type="submit" class="ui button primary" value="Iniciar Sesión" />
                     </div>
+                    
+                   <div class="field">
+                       <a href="@Url.Action("Register","Account")" class="ui button primary">Registrarte</a>
+                   </div>
                 </div>
+                
 
             </div>
         }

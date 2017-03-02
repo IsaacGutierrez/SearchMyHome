@@ -30,7 +30,7 @@
     <!-- Following Menu -->
     <div class="ui large top fixed hidden menu">
         <div class="ui container">
-            <div class="item">
+            <div class="item search-header" >
                 <div class="field">
                     <div class="ui search">
                         <div class="ui icon input">
@@ -42,11 +42,27 @@
                 </div>
             </div>
             <div class="right menu">
-                <div class="item">
-                    <a class="ui button primary">Iniciar Sesión</a>
-                </div>
-                <div class="item">
-                    <a class="ui primary button danger">Registrarse</a>
+                <div class="right item">
+                    @if (User.Identity.IsAuthenticated)
+            {
+                        <div class="ui inline dropdown ">
+                            <div class="text">
+                                <img class="ui avatar image" src="~/Content/semantic-ui/avatar/tom.jpg"> @User.Identity.Name
+                            </div>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <div class="item">Dashboard</div>
+                                <div class="item"> <a href="@Url.Action("logOut","Account")">Cerrar sesión</a> </div>
+                            </div>
+                        </div>
+
+                    }
+                    else
+                    {
+                        <a class="ui primary button item" href="@Url.Action("Login","Account")">Iniciar sesión</a>
+                        <a class="ui primary button item" href="@Url.Action("Register","Account")">Registrarse</a>
+                    }
+
                 </div>
             </div>
         </div>
@@ -57,8 +73,29 @@
         <a class="active item">Inicio</a>
         <a class="item">Buscar Inmueble</a>
         <a class="item">Planes suscripción</a>
-        <a class="item">Iniciar Sesión</a>
-        <a class="item">Registrarse</a>
+        <div class="right item">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="ui inline dropdown ">
+                    <div class="text">
+                        <img class="ui avatar image" src="~/Content/semantic-ui/avatar/tom.jpg"> @User.Identity.Name
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div class="item">Dashboard</div>
+                        <div class="item"> <a href="@Url.Action("logOut","Account")">Cerrar sesión</a> </div>
+                    </div>
+                </div>
+
+            }
+            else
+            {
+                <a class="ui primary button" href="@Url.Action("Login","Account")">Iniciar sesión</a>
+                    <a class="ui primary button" href="@Url.Action("Register","Account")">Registrarse</a>
+            }
+
+        </div>
+
     </div>
 
 
@@ -74,8 +111,29 @@
                     <div class="ui inverted link list">
                         <a href="#" class="item">Ayuda</a>
                         <a href="#" class="item">Contactenos</a>
-                        <a href="#" class="item">Politicas</a>
-                        <a href="#" class="item">Terminos y Privacidad</a>
+                        <div class="right item">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <div class="ui inline dropdown ">
+                                    <div class="text">
+                                        <img class="ui avatar image" src="~/Content/semantic-ui/avatar/tom.jpg"> @User.Identity.Name
+                                    </div>
+                                    <i class="dropdown icon"></i>
+                                    <div class="menu">
+                                        <div class="item">Dashboard</div>
+                                        <div class="item"> <a href="@Url.Action("logOut","Account")">Cerrar sesión</a> </div>
+                                    </div>
+                                </div>
+
+                            }
+                            else
+                            {
+                                <a class="ui primary button" href="@Url.Action("Login","Account")">Iniciar sesión</a>
+                                <a class="ui primary button" href="@Url.Action("Register","Account")">Registrarse</a>
+                            }
+
+                        </div>
+                        
                     </div>
                 </div>
                 <div class="three wide column">
@@ -94,6 +152,7 @@
     </div>
         @Scripts.Render("~/bundles/jquery")
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
     @Scripts.Render("~/bundles/modernizr")
     @RenderSection("scripts", required: false)
 </body>

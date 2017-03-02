@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchMyHome", "SearchMyHom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchMyHome.DataAccess", "SearchMyHome.DataAccess\SearchMyHome.DataAccess.csproj", "{A88BDE65-04D9-421E-AF08-1B6F722CF8FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchMyHome.Services", "SearchMyHome.Services\SearchMyHome.Services.csproj", "{AB8FCD83-6809-4591-9F90-A4EBDC8F5508}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A88BDE65-04D9-421E-AF08-1B6F722CF8FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A88BDE65-04D9-421E-AF08-1B6F722CF8FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A88BDE65-04D9-421E-AF08-1B6F722CF8FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB8FCD83-6809-4591-9F90-A4EBDC8F5508}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB8FCD83-6809-4591-9F90-A4EBDC8F5508}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB8FCD83-6809-4591-9F90-A4EBDC8F5508}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB8FCD83-6809-4591-9F90-A4EBDC8F5508}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

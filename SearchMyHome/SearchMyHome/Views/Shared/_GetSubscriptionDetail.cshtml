@@ -1,0 +1,15 @@
+﻿@model SearchMyHome.Models.SubscriptionDetailViewModel
+<div class="ui segment">
+    <div class="header">
+      <h2>@Model._subscriptionTitle</h2> 
+    </div>
+    <div class="content">
+        <h4>$RD @Model._price/@Model._period</h4>
+        <ul>
+            @foreach (string feature in Model._features) {
+                <li>@feature</li>
+            }
+        </ul>
+            
+    </div>
+</div>

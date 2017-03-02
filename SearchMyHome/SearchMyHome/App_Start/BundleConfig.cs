@@ -30,6 +30,10 @@ namespace SearchMyHome
             bundles.Add(new StyleBundle("~/Content/UserConfigurationStyle").Include(
                 "~/Content/UserConfiguration.css"
                 ));
+
+            bundles.Add(new StyleBundle("~/Content/SuscriptionConfigurationStyle").Include(
+                "~/Content/custom/suscription-configuration.css"
+                ));
         }
     }
 }

@@ -93,6 +93,8 @@ C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Microsoft.AspNet.Identity.Core.dll
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Microsoft.Owin.dll
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Microsoft.Owin.Host.SystemWeb.dll
@@ -107,6 +109,7 @@ C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Newtonsoft.Json.dll
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Owin.dll
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\SearchMyHome.DataAccess.dll
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Stripe.net.dll
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\System.Web.Helpers.dll
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\System.Web.Mvc.dll
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\System.Web.Optimization.dll
@@ -117,7 +120,10 @@ C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\WebGrease.dll
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\SearchMyHome.DataAccess.pdb
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\AutoMapper.xml
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Newtonsoft.Json.xml
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\System.Web.Helpers.xml
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\System.Web.Mvc.xml
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\System.Web.Optimization.xml
@@ -126,7 +132,6 @@ C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\System.Web.WebPages.Razor.xml
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Antlr3.Runtime.pdb
-C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Newtonsoft.Json.xml
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\EntityFramework.xml
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\EntityFramework.SqlServer.xml
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Microsoft.AspNet.Identity.Core.xml
@@ -141,10 +146,8 @@ C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\obj\Debug\SearchMyHome.csprojResolveAssemblyReference.cache
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\obj\Debug\SearchMyHome.dll
 C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\obj\Debug\SearchMyHome.pdb
-C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\obj\Debug\SearchMyHome.csprojResolveAssemblyReference.cache
-C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Microsoft.AspNet.SignalR.Core.dll
-C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
-C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Microsoft.AspNet.SignalR.Core.xml
-C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\SearchMyHome.Services.dll
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome\bin\SearchMyHome.Services.pdb

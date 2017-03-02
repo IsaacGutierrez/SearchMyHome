@@ -1,0 +1,316 @@
+﻿@model SearchMyHome.Models.UserProfileConfigurationViewModel
+@{
+    ViewBag.Title = "ConfigUserProfile";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/Content/custom/suscription-configuration.css" rel="stylesheet" />
+<div class="ui container">
+    <div class="ui ordered three steps fixed">
+        <div class="completed step" id="userInfo-step">
+            <div class="content">
+                <div class="title">Información de cuenta</div>
+                <div class="description">
+                    Complete la información de su perfil
+                </div>
+            </div>
+        </div>
+        <div class="active step" id="suscription-step">
+            <div class="content">
+                <div class="title">
+                    Adquirir suscripción
+                </div>
+                <div class="description">
+                    Elija su plan de suscripción
+                </div>
+            </div>
+        </div>
+        <div class="step" id="suscription-step">
+            <div class="content">
+                <div class="title">
+                    Resumen de información
+                </div>
+                <div class="description">
+                    Verifique la información registrada
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui container">
+        <!--suscription table-->
+       <div class="ui stackable grid">
+           <div class="four wide column">
+               <div class="ui card">
+                   <div class="ui content header-subscription header-basic">
+                       Basica
+                   </div>
+                   <div class="image">
+                       <div class="content">
+                           <p>Este plan fue diseñado para clientes que desean
+                                encontrar inmuebles que estén de oportunidad, 
+                                aprovechando las características esenciales de Searchmyhome,
+                                tales como las video-reuniones, 
+                                la búsqueda mediante geolocalización 
+                                y recibir notificaciones en base a su interés de búsqueda. 
+                           </p>
+                       </div>
+                       
+                   </div>
+                   <div class="description">
+                       Adquirida
+                   </div>
+               </div>
+
+           </div>
+           <div class="four wide column">
+               <div class="ui card">
+                   <div class="ui content header-subscription header-standard">
+                       Estándar
+                   </div>
+                   <div class="image">
+                       <div class="content">
+                           <p>
+                               Este plan está pensado para clientes que desean publicar
+                                anuncios no tan frecuentemente,
+                               pero desean mostrar las cualidades de sus inmuebles.
+                           </p>
+                       </div>
+
+                   </div>
+                   <div class="description">
+                      <input type="button" class="ui button basic primary" onclick="showPaymentsOption(6)" value="Seleccionar"  />
+                   </div>
+               </div>
+
+           </div>
+           <div class="four wide column">
+
+
+           </div>
+           <div class="four wide column">
+
+
+           </div>
+       </div>
+       <!-- <table class="ui celled definition table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>
+                        <h3>Basica</h3>
+                        <label>Gratis</label>
+                    </th>
+                    <th>
+                        <h3>Estandard</h3>
+                        <label>$1,500.00</label>
+                    </th>
+                    <th>
+                        <h3>Premium</h3>
+                        <label>$2,500.00</label>
+                    </th>
+                    <th>
+                        <h3>Inmobiliaria</h3>
+                        <label>$5,000.00</label>
+                    </th>
+                </tr>
+               
+            </thead>
+            <tbody>
+                <tr>
+                   <th></th>
+                    <td class=""><h4>Adquirida</h4></td>
+                    <td><input type="button" class="ui button basic primary" onclick="showPaymentsOption(6)" value="Comprar" /></td>
+                    <td><input type="button" class="ui button basic primary" onclick="showPaymentsOption(7)"  value="Comprar"  /></td>
+                    <td><input type="button" class="ui button basic primary" onclick="showPaymentsOption(8)" value="Comprar" /></td>
+                    
+                </tr>
+                <tr>
+                    <td>Publicar anuncios publicitarios</td>
+                    <td style="text-align:center" class="feature"><i class="ui icon remove circle outline" style="color:red;font-size:4em"></i></td>
+                    <td class="feature"><i><strong>30 Dias</strong></i></td>
+                    <td class="feature"><i><strong>60 Dias</strong></i></td>
+                    <td class="feature"><i><strong>60 Dias</strong></i></td>
+                    
+                </tr>
+                <tr>
+                    <td>Administrar video-reunión</td>
+                    <td class="feature"><i>No</i></td>
+                    <td class="feature"><i><strong>Si</strong></i></td>
+                    <td class="feature"><i><strong>Si</strong></i></td>
+                    <td class="feature"><i><strong>Si</strong></i></td>
+
+                </tr>
+            </tbody>
+        </table> -->
+        <!--suscription table-->
+       
+    </div>
+    
+  </div>
+<div class="ui stackable grid">
+    <div class="sixteen wide column" >
+        <div class="button-option-container">
+            <input type="button" class="ui button primary pull-right" value="Atras" />
+            <input type="submit" class="ui button primary pull-right" value="Siguientes" />
+        </div>
+       
+    </div>
+</div>
+
+<div class="ui modal">
+    <div class="header">
+        Información de facturación
+    </div>
+    <div class="content">
+        @using (Html.BeginForm("SuscriptionConfiguration", "Account",FormMethod.Post,new {@id = "payment-form" })) {
+            @Html.AntiForgeryToken()
+        <div class="ui stackable grid">
+            @Html.HiddenFor(model => model._suscriptionSelectedId,new { @id= "_suscriptionSelectedId" })
+            @Html.HiddenFor(model => model._suscriptorGuid)
+            <div class="ui eight wide column">
+                <div class="ui form">
+                    <div class="ui dividing header ">
+                        Tarjetas aceptadas
+                    </div>
+                    <div class="field">
+                        <img src="~/Content/creditcards/visa.png" alt="visa" />
+                        <img src="~/Content/creditcards/mastercard.png" alt="mastercard" />
+                        <img src="~/Content/creditcards/amex.png" alt="amex" />
+                        <img src="~/Content/creditcards/discover.png" alt="discover" />
+                    </div>
+                    <div class="field">
+                        <label>
+                            Numero de Tarjeta
+                        </label>
+                        <input type="text" class="cc-number" placeholder="Numero de tarjeta" />
+                    </div>
+                    <div class="two fields">
+                        
+                        <div class="field">
+                           <label>Mes expiración</label>
+                            <select class="ui dropdown" id="month-expiration">
+                                <option value="1">Enero</option>
+                                <option value="2">Febrero</option>
+                                <option value="3">Marzo</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Mayo</option>
+                                <option value="6">Junio</option>
+                                <option value="7">Agosto</option>
+                                <option value="8">Septiembre</option>
+                                <option value="9">Octubre</option>
+                                <option value="10">Noviembre</option>
+                                <option value="11">Diciembre</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Año expiración</label>
+                            <input type="number" id="expiration-year" placeholder="Año" required  min="@DateTime.Now.Year" value="@DateTime.Now.Year" />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>cvc</label>
+                        <input type="text" class="cc-cvc"  required />
+                    </div>
+                </div>
+            </div>
+            <div class="ui eight wide column">
+                <div id="subscription-detail">
+
+                </div>
+                <div class="payment-errors hidden">
+                    <div class="ui warning message">
+                        <i class="close icon"></i>
+                        <div class="header">Error en información de pago</div>
+                         <div class="content" style="margin-top:4px">
+
+                         </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+
+    <div class="actions">
+        <input type="submit" class="ui button primary" id="btn-submit" value="Procesar" />
+    </div>
+</div>
+@section scripts{
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.9/jquery.mask.min.js"></script>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script src="~/Scripts/jquery.payment.js"></script>
+<script src="~/Scripts/payment-validations.js"></script>
+<script>
+
+    $("#btn-submit").click(function () {
+        $("#payment-form").submit();
+    });
+
+    $(".ui.dropdown").dropdown();
+
+    function showPaymentsOption(suscriptionId) {
+        $(".ui.modal")
+            .modal("show");
+
+        $.get("@Url.Action("GetSubscriptionDetail", "Account")",
+            { SubscriptionId: suscriptionId },
+            function (Data) {
+                $("#subscription-detail").html(Data);
+            });
+
+        $("#_suscriptionSelectedId").val(suscriptionId);
+    }
+    // This identifies your website in the createToken call below
+    Stripe.setPublishableKey("@Model._stripePublishKey");
+
+    var stripeResponseHandler = function (status, response) {
+        var $form = $('#payment-form');
+         
+        if (response.error) {
+            // Show the errors on the form
+            alert(response.error);
+            $paymentErrors = $form.find('.payment-errors');
+            $paymentErrors.removeClass("hidden");
+            $paymentErrors.find('content').text(response.error.message);
+
+            $paymentErrors.text(response.error.message);
+            $paymentErrors.toggle($paymentErrors.text.length > 0);
+
+            $form.find('button').prop('disabled', false);
+        } else {
+            // token contains id, last4, and card type
+            var token = response.id;
+            // Insert the token into the form so it gets submitted to the server
+            $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+            // and re-submit
+            $form.get(0).submit();
+        }
+    };
+
+    jQuery(function ($) {
+
+        $('#payment-form').submit(function (e) {
+
+            e.preventDefault();
+            var $form = $(this);
+
+
+            //$form.validate({
+            //   errorPlacement: function (error, element) { }
+            //});
+            //if (!$form.valid()) { return; }
+
+          
+            Stripe.card.createToken({
+                number: $('.cc-number').val(),
+                cvc: $('.cc-cvc').val(),
+                exp_month: ($("#month-expiration").val() || 0),
+                exp_year: ($("#expiration-year").val() || 0)
+            }, stripeResponseHandler);
+
+        });
+    });
+</script>
+
+}

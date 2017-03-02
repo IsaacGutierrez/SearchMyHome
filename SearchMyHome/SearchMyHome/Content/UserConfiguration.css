@@ -11,3 +11,12 @@
 .error-message{
     color:red;
 }
+
+.pull-right{
+    float:right;
+}
+
+.image-button{
+    margin-left:16px !important;
+    margin-top:5px !important;
+}

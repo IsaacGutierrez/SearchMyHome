@@ -3,281 +3,189 @@
     ViewBag.Title = "ConfigUserProfile";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-<h2>ConfigUserProfile</h2>
-
 @Styles.Render("~/Content/UserConfigurationStyle")
 
-<!---Modal configuration user-->
-<div class="ui modal user-settings"> 
-    <div class="header">
-        
-        <div class="ui ordered centered  steps">
-            <div class="active step" id="userInfo-step">
-                <div class="content">
-                    <div class="title">Información de cuenta</div>
-                    <div class="description">
-                        Complete la información de su perfil
-                    </div>
-                </div>
-
-            </div>
-            <div class="step" id="suscription-step">
-                <div class="content">
-                    <div class="title">
-                        Adquirir suscripción
-                    </div>
-                    <div class="description">
-                        Elija su plan de suscripción
-                    </div>
-                </div>
-            </div>
-            <div class="step" id="suscription-step">
-                <div class="content">
-                    <div class="title">
-                        Resumen de información
-                    </div>
-                    <div class="description">
-                        Verifique la información registrada
-                    </div>
+<div class="ui container">
+    <div class="ui ordered three steps fixed">
+        <div class="active step" id="userInfo-step">
+            <div class="content">
+                <div class="title">Información de cuenta</div>
+                <div class="description">
+                    Complete la información de su perfil
                 </div>
             </div>
         </div>
-
-    </div>
-   
-    <div class="content"> 
-@using (Html.BeginForm("ConfigUserProfile", "Account", FormMethod.Post, new { @enctype="multipart/form-data"}))
-{
-         <!---user information-->
-        <div class="ui stackable grid" id="user-profile-section">
-            <div class="four wide column">
-                <div class="ui small circular image">
-                    @Html.HiddenFor(model => model._suscriptorGuid)
-                    @Html.HiddenFor(model => model._email)
-                    <img src="~/Content/semantic-ui/avatar/tom.jpg" id="config-user-image-display">
-                    <input type="file" name="_profileImage" style="display:none" id="_profileImage" onchange="loadImage(this)" />
-                    
+        <div class="step" id="suscription-step">
+            <div class="content">
+                <div class="title">
+                    Adquirir suscripción
                 </div>
-                <input type="button" class="ui button primary centered" value="Cargar Foto" onclick="$('#_profileImage').click()" />
-            </div>
-            <div class="twelve wide column">
                 <div class="description">
-                    <div class="ui form" style="padding-top:10px;padding-left:20px;">
-                        <div class="ui dividing header ">
-                            Información de perfil
-                        </div>
-                        <div class="field">
-                            <div class="two fields">
-                                <div class="field">
-                                    <label>Nombres</label>
-                                    @Html.TextBoxFor(model => model._name, new { @placeholder = "Nombres" })
-                                    <p class="error-message">
-                                        @Html.ValidationMessageFor(model => model._name)
-                                    </p>
-                                   
-                                </div>
-                                <div class="field">
-                                    <label>Apellidos</label>
-                                    @Html.TextBoxFor(model => model._lastname, new { @placeholder = "Apellidos" })
-                                    <p class="error-message"> 
-                                        @Html.ValidationMessageFor(model => model._lastname)
-                                    </p>
-                                   
-                                </div>
-                            </div>
-                            <div class="two fields">
-                                <div class="field">
-                                    <label>Numero telefonico</label>
-                                    @Html.TextBoxFor(model => model._phoneNumber, new { @placeholder = "Numero telefonico" })
-                                    <p class="error-message">
-                                      @Html.ValidationMessageFor(model => model._email)
-                                    </p>
-                                    
-                                </div>
-                                <div class="field">
-                                    <label>Nombre Usuario</label>
-                                    @Html.TextBoxFor(model => model._userName, new { @placeholder = "Nombre Usuario" })
-                                    <p class="error-message">
-                                        @Html.ValidationMessageFor(model => model._userName)
-                                    </p>
-                                  
-                                </div>
-                            </div>
-                            <div class="two fields">
-                                <div class="field">
-                                    <label>Password</label>
-                                    @Html.TextBoxFor(model => model._password, new { @type = "password", @placeholder = "password" })
-                                    <p class="error-message">
-                                        @Html.ValidationMessageFor(model => model._password)
-                                    </p>
-                                    
-                                </div>
-                                <div class="field">
-                                    <label>Confirmar password</label>
-                                    @Html.TextBoxFor(model => model._confirmPassword, new { @type = "password", @placeholder = " Confirmar password" })
-                                    <p class="error-message">
-                                        @Html.ValidationMessageFor(model => model._confirmPassword)
-                                    </p>
-                                   
-                                </div>
-                            </div>
-                            <div class="two fields">
-                                <div class="field">
-                                    <label>Sexo</label>
-                                    <div class="ui selection dropdown">
-                                        @Html.HiddenFor(model => model._gender)
-                                        <i class="dropdown icon"></i>
-                                        <div class="default text"> Masculino</div>
-                                        <div class="menu">
-                                            <div class="item" data-value="M" data-text="Masculino">
-                                                <i class="male icon"></i>
-                                                Masculino
-                                            </div>
-                                            <div class="item" data-value="F" data-text="Femenino">
-                                                <i class="female icon"></i>
-                                                Femenino
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="error-message">
-                                        @Html.ValidationMessageFor(model => model._gender)
-                                    </p>
-                                   
-                                </div>
-                                <div class="field">
-                                    <label>Fecha de nacimiento</label>
-                                    @Html.TextBoxFor(model => model._birthDate, new { @id = "date-birth", @type = "date", @value = DateTime.Now.ToShortDateString() })
-                                </div>
+                    Elija su plan de suscripción
+                </div>
+            </div>
+        </div>
+        <div class="step" id="suscription-step">
+            <div class="content">
+                <div class="title">
+                    Resumen de información
+                </div>
+                <div class="description">
+                    Verifique la información registrada
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui container">
+        @using (Html.BeginForm("ConfigUserProfile", "Account", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+         <!---user information-->
+            <div class="ui stackable grid" id="user-profile-section">
+                <div class="four wide column">
+                    <div class="ui small circular image">
+                        @Html.HiddenFor(model => model._suscriptorGuid)
+                        @Html.HiddenFor(model => model._email)
+                        <img src="~/Content/semantic-ui/avatar/tom.jpg" id="config-user-image-display">
+                        <input type="file" name="_profileImage" style="display:none"  id="_profileImage" onchange="loadImage(this)" />
 
-
-                            </div>
-                            <div class="ui dividing header">Dirección</div>
-                            <div class="two fields">
-                                <div class="field">
-                                    <label>Provincia</label>
-
-                                    @Html.DropDownListFor(model => model._provinciaId, new SelectList(Model._provincias, "provinciaId", "nombre"), new { @class = "ui dropdown", @id = "_provinciaId", @onchange = "getMunicipios(this.value)" })
-                                    <p class="error-message">
-                                        @Html.ValidationMessageFor(model => model._provinciaId)
-                                    </p>
-                                   
-                                </div>
-                                <div class="field">
-                                    <label>Municipio</label>
-                                    <select class="ui dropdown" id="_municipioId" name="_municipioId"></select>
-                                </div>
+                    </div>
+                    <input type="button" class="ui button primary centered image-button" value="Cargar Foto" onclick="$('#_profileImage').click()" />
+                </div>
+                <div class="twelve wide column">
+                    <div class="description">
+                        <div class="ui form" style="padding-top:10px;padding-left:20px;">
+                            <div class="ui dividing header ">
+                                Información de perfil
                             </div>
                             <div class="field">
-                                <label>Calle</label>
-                                @Html.TextBoxFor(model => model._street, new { @placeholder = "Calle" })
-                                <p class="error-message">
-                                   @Html.ValidationMessageFor(model => model._street)
-                                </p>
-                                
+                                <div class="two fields">
+                                    <div class="field">
+                                        <label>Nombres</label>
+                                        @Html.TextBoxFor(model => model._name, new { @placeholder = "Nombres" })
+                                        <p class="error-message">
+                                            @Html.ValidationMessageFor(model => model._name)
+                                        </p>
+
+                                    </div>
+                                    <div class="field">
+                                        <label>Apellidos</label>
+                                        @Html.TextBoxFor(model => model._lastname, new { @placeholder = "Apellidos" })
+                                        <p class="error-message">
+                                            @Html.ValidationMessageFor(model => model._lastname)
+                                        </p>
+
+                                    </div>
+                                </div>
+                                <div class="two fields">
+                                    <div class="field">
+                                        <label>Numero telefonico</label>
+                                        @Html.TextBoxFor(model => model._phoneNumber, new { @placeholder = "Numero telefonico" })
+                                        <p class="error-message">
+                                            @Html.ValidationMessageFor(model => model._email)
+                                        </p>
+
+                                    </div>
+                                    <div class="field">
+                                        <label>Nombre Usuario</label>
+                                        @Html.TextBoxFor(model => model._userName, new { @placeholder = "Nombre Usuario" })
+                                        <p class="error-message">
+                                            @Html.ValidationMessageFor(model => model._userName)
+                                        </p>
+
+                                    </div>
+                                </div>
+                                <div class="two fields">
+                                    <div class="field">
+                                        <label>Password</label>
+                                        @Html.TextBoxFor(model => model._password, new { @type = "password", @placeholder = "password" })
+                                        <p class="error-message">
+                                            @Html.ValidationMessageFor(model => model._password)
+                                        </p>
+
+                                    </div>
+                                    <div class="field">
+                                        <label>Confirmar password</label>
+                                        @Html.TextBoxFor(model => model._confirmPassword, new { @type = "password", @placeholder = " Confirmar password" })
+                                        <p class="error-message">
+                                            @Html.ValidationMessageFor(model => model._confirmPassword)
+                                        </p>
+
+                                    </div>
+                                </div>
+                                <div class="two fields">
+                                    <div class="field">
+                                        <label>Sexo</label>
+                                        <div class="ui selection dropdown">
+                                            @Html.HiddenFor(model => model._gender)
+                                            <i class="dropdown icon"></i>
+                                            <div class="default text"> Masculino</div>
+                                            <div class="menu">
+                                                <div class="item" data-value="M" data-text="Masculino">
+                                                    <i class="male icon"></i>
+                                                    Masculino
+                                                </div>
+                                                <div class="item" data-value="F" data-text="Femenino">
+                                                    <i class="female icon"></i>
+                                                    Femenino
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="error-message">
+                                            @Html.ValidationMessageFor(model => model._gender)
+                                        </p>
+
+                                    </div>
+                                    <div class="field">
+                                        <label>Fecha de nacimiento</label>
+                                        @Html.TextBoxFor(model => model._birthDate, new { @id = "date-birth", @type = "date", @value = DateTime.Now.ToShortDateString() })
+                                    </div>
+
+
+                                </div>
+                                <div class="ui dividing header">Dirección</div>
+                                <div class="two fields">
+                                    <div class="field">
+                                        <label>Provincia</label>
+
+                                        @Html.DropDownListFor(model => model._provinciaId, new SelectList(Model._provincias, "provinciaId", "nombre"), new { @class = "ui dropdown", @id = "_provinciaId", @onchange = "getMunicipios(this.value)" })
+                                        <p class="error-message">
+                                            @Html.ValidationMessageFor(model => model._provinciaId)
+                                        </p>
+
+                                    </div>
+                                    <div class="field">
+                                        <label>Municipio</label>
+                                        <select class="ui dropdown" id="_municipioId" name="_municipioId"></select>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>Calle</label>
+                                    @Html.TextBoxFor(model => model._street, new { @placeholder = "Calle" })
+                                    <p class="error-message">
+                                        @Html.ValidationMessageFor(model => model._street)
+                                    </p>
+
+                                </div>
+                                <div class="field">
+                                    <input class="ui primary button pull-right" type="submit" value="Siguiente" />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!---suscription information-->
-        <div class="ui stackable grid section-hide" style="display:none" id="suscription-section">
-            <div class="ten wide column">
-                <div class="ui four cards">
 
-                    <div class="card">
-                        <div class="content">
-                            <div class="header">
-                                Standard
-                            </div>
-                            <div class="description">
-
-                            </div>
-                        </div>
-                        <div class="ui bottom attached button">
-                            <i class="ui icon add"></i>
-                            Adquirir
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="content">
-                            <div class="header">
-                                Premiun
-                            </div>
-                            <div class="description">
-
-                            </div>
-                        </div>
-                        <div class="ui bottom attached button">
-                            <i class="ui icon add"></i>
-                            Adquirir
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="content">
-                            <div class="header">
-                                Inmobiliaria
-                            </div>
-                            <div class="description">
-
-                            </div>
-                        </div>
-                        <div class="ui bottom attached button">
-                            <i class="ui icon add"></i>
-                            Adquirir
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-}
+        }
     </div>
-    <div class="actions">
+</div>
 
-        <div class="ui ok left labeled icon button pull-left" id="back-btn" style="display:none" onclick="back();">
-            Atras
-            <i class="checkmark icon"></i>
-        </div>
-        <div class="ui right labeled icon button deny" id="next-btn" onclick="next()">
-            Siguiente
-            <i class="checkmark icon"></i>
-        </div>
 
-        <div  class="ui primary right labeled icon pull-right button" id="save-btn" style="display:none">
-            Guardar Configuración
-            <i class="ui icon setting"></i>
-        </div>
-
-    </div>
-   
- </div>
 
 
 @section  scripts{
     
    <script>
        $(document).ready(function () {
-           setTimeout(function () {
-              
-               $('.ui.modal')
-                 .modal({
-                     closable: false,
-                     onDeny: function () {
-                       
-                         return false;
-                     },
-                     onApprove: function () {
-                      
-                         return false;
-                     }
-                 })
-                 .modal('show');
-            
-             
-               
-           }, 200);
-
            ////initialize dropdown
            $('.ui.dropdown')
                 .dropdown();
@@ -296,42 +204,13 @@
            }
        }
 
-       ///transition for content information
-       var configurationPage = {
-           userInformation: 0,
-           suscriptionInformation:1
-       }
-
-       ///set the next tab for suscription information
-       function next() {
-           $("#user-profile-section").css("display", "none");
-           $("#suscription-section").css("display", "flex");
-           $("#userInfo-step").removeClass("active");
-           $("#suscription-step").addClass("active");
-           $("#next-btn").css("display", "none");
-           $("#back-btn").css("display", "inline");
-           $("#save-btn").css("display", "inline");
-       }
-
-       //set the back tab for user profile config
-       function back() {
-           $("#user-profile-section").css("display", "flex");
-           $("#suscription-section").css("display", "none");
-           $("#userInfo-step").addClass("active");
-           $("#suscription-step").removeClass("active");
-           $("#next-btn").css("display", "inline");
-           $("#back-btn").css("display", "none");
-           $("#save-btn").css("display", "none");
-       }
-
       
        $("#_provincias").change(function () {
            
            getMunicipios(this.value);
        });
 
-       function getMunicipios(provinciaId)
-       {
+       function getMunicipios(provinciaId) {
            
            if (typeof provinciaId != 'undefined') {
                
@@ -348,12 +227,7 @@
            }
 
        }
-       
-       $("#save-btn").click(function () {
-           
-           $("form:first").submit();
-       });
-       
+     
   </script>
 
 }

@@ -1,0 +1,17 @@
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.Services\bin\Debug\SearchMyHome.Services.dll
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.Services\bin\Debug\SearchMyHome.Services.pdb
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.Services\obj\Debug\SearchMyHome.Services.csprojResolveAssemblyReference.cache
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.Services\obj\Debug\SearchMyHome.Services.dll
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.Services\obj\Debug\SearchMyHome.Services.pdb
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.Services\bin\Debug\SearchMyHome.Services.dll.config
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.Services\bin\Debug\EntityFramework.dll
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.Services\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.Services\bin\Debug\RestSharp.dll
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.Services\bin\Debug\SearchMyHome.DataAccess.dll
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.Services\bin\Debug\SearchMyHome.DataAccess.pdb
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.Services\bin\Debug\EntityFramework.xml
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.Services\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.Services\bin\Debug\RestSharp.xml
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.Services\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.Services\bin\Debug\Stripe.net.dll
+C:\Users\Isaac Gutierrez\Documents\GitHub\SearchMyHome\SearchMyHome\SearchMyHome.Services\bin\Debug\Newtonsoft.Json.xml

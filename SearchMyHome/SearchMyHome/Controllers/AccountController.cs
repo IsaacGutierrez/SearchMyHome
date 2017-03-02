@@ -11,6 +11,9 @@ using Microsoft.Owin.Security;
 using SearchMyHome.Models;
 using SearchMyHome.DataAccess;
 using System.Net;
+using System.Configuration;
+using Stripe;
+using SearchMyHome.Services;
 
 namespace SearchMyHome.Controllers
 {  
@@ -146,6 +149,10 @@ namespace SearchMyHome.Controllers
                 model._provincias = _entities.Provincias.AsEnumerable();
                 model._suscriptorGuid = suscriptor.SuscriptorGUID;
                 model._email = suscriptor.correoElectronico;
+                model._userName = suscriptor.nombreUsuario;
+                model._gender = suscriptor.sexo[0];
+               
+                
 
                 return View(model);
             }
@@ -160,9 +167,8 @@ namespace SearchMyHome.Controllers
         {
             if (ModelState.IsValid) {
                 int SuscripcionBasica = 1;
-            Suscriptor suscriptorAConfig = _entities.Suscriptor
-                      .Where(suscriptor => suscriptor.SuscriptorGUID == model._suscriptorGuid)
-                      .Single();
+
+               Suscriptor suscriptorAConfig = GetSuscriptorByGuid(model._suscriptorGuid);
 
                      if (suscriptorAConfig != null)
                  {
@@ -185,11 +191,46 @@ namespace SearchMyHome.Controllers
                     LoginModel._Name = model._name;
                     LogIn(LoginModel);
 
-                    return RedirectToAction("Index","UserAdministration");
+                    return RedirectToAction("SuscriptionConfiguration","Account",new { SuscriptorGuid = model._suscriptorGuid });
+
+
                    }
             }
+
             model._provincias = _entities.Provincias.AsEnumerable();
             return View(model);
+        }
+
+  
+        public ActionResult SuscriptionConfiguration(string SuscriptorGuid)
+        {
+            Suscriptor suscriptorAConfig = GetSuscriptorByGuid(SuscriptorGuid);
+            UserProfileConfigurationViewModel model = new UserProfileConfigurationViewModel(false);
+            model._stripePublishKey = ConfigurationManager.AppSettings["stripePublishableKey"];
+            model._suscriptorGuid = SuscriptorGuid;
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult SuscriptionConfiguration(UserProfileConfigurationViewModel model)
+        {
+            try
+            {
+                var suscriptor = _entities.Suscriptor.Where(entity => entity.SuscriptorGUID == model._suscriptorGuid ).Single();
+                var tipoSuscripcion = _entities.TipoSuscripcion.Find(model._suscriptionSelectedId);
+                SubscriptionService service = new SubscriptionService();
+                string stripeSecretKey = ConfigurationManager.AppSettings["stripeSecretKey"];
+                service.createSuscription(suscriptor.suscriptorId,tipoSuscripcion, model.stripeToken,stripeSecretKey);
+            }
+            catch (StripeException ex)
+            {
+
+                throw;
+            }
+
+            return RedirectToAction("Index","Home");
         }
 
         [AllowAnonymous]
@@ -202,6 +243,24 @@ namespace SearchMyHome.Controllers
             });
 
             return Json(result,JsonRequestBehavior.AllowGet);
+        }
+
+        [AllowAnonymous]
+        public ActionResult GetSubscriptionDetail(int SubscriptionId)
+        {
+            var subscription = _entities.TipoSuscripcion.Find(SubscriptionId);
+
+            if (subscription!= null) {
+                SubscriptionDetailViewModel model = new SubscriptionDetailViewModel();
+                model._subscriptionTitle = subscription.nombre;
+                model._price = subscription.precio.Value;
+                model._period = "MES";
+                model._features = subscription.descripcion.Split('/');
+
+                return PartialView("_GetSubscriptionDetail", model);
+            }
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
         }
 
         /// <summary>
@@ -223,6 +282,13 @@ namespace SearchMyHome.Controllers
         private void logOut()
         {
             HttpContext.GetOwinContext().Authentication.SignOut();
+        }
+
+        private Suscriptor GetSuscriptorByGuid(string GUID) {
+            Suscriptor suscriptorAConfig = _entities.Suscriptor
+                      .Where(suscriptor => suscriptor.SuscriptorGUID == GUID)
+                      .Single();
+            return suscriptorAConfig;
         }
 
 

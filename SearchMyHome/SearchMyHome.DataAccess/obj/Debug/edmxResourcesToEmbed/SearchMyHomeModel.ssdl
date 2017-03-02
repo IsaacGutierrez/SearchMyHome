@@ -232,6 +232,8 @@
     <Property Name="fotoPerfilUrl" Type="varchar" MaxLength="10" />
     <Property Name="emailConfirmation" Type="bit" />
     <Property Name="perfilConfigurated" Type="bit" />
+    <Property Name="stripeCustomerId" Type="varchar" MaxLength="500" />
+    <Property Name="creditCardExpiredDate" Type="datetime" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -273,6 +275,7 @@
     <Property Name="tipoServicioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="50" />
     <Property Name="descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="externalId" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="TipoSuscripcion">
     <Key>
@@ -283,6 +286,7 @@
     <Property Name="descripcion" Type="varchar" MaxLength="300" />
     <Property Name="precio" Type="numeric" Precision="8" Scale="2" />
     <Property Name="periodoId" Type="int" />
+    <Property Name="externalId" Type="varchar" MaxLength="60" />
   </EntityType>
   <EntityType Name="TipoSuscripcionSuscriptor">
     <Key>

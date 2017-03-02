@@ -1,0 +1,25 @@
+﻿  body .container .menu{
+            font-size:4em !important;
+
+        }
+        .main{min-height:100%; 
+      padding-bottom:60px; 
+      box-sizing:border-box;}
+   
+    .menu .item{
+        height:4em;
+    }
+
+ .Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.Site-content {
+  flex: 1;
+}
+
+.main-content{
+    margin-top:100px;
+}

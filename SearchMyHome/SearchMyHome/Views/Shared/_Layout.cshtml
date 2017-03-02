@@ -52,27 +52,15 @@
     <link rel="stylesheet" type="text/css" href="~/Content/semantic-ui/components/checkbox.css">
 
 
-    <!--Bootstrap for markup-->
-   
   
 
     <link rel="shortcut icon" href="~/Content/image/OfficialLogo.png" />
-    <style>
-        body .container .menu{
-            font-size:4em !important;
-
-        }
-        .main{min-height:100%; 
-      padding-bottom:60px; 
-      box-sizing:border-box;}
-   
-    .menu .item{
-        height:4em;
-    }
-    </style>
+    <!---custom css for home page-->
+    <link href="~/Content/custom/site.css" rel="stylesheet" />
+    
     <title>@ViewBag.Title</title>
 </head>
-<body class="ui fluid container ">
+<body class="ui fluid container Site">
  
     <!--Menu-->
     <div class="ui top fixed labeled icon menu">
@@ -87,15 +75,15 @@
         </div>
     </div>
     <!-- content-starts-here -->
-    <div class="main" style="height:60%; margin-top:100px">
-        <div class="ui container main">
+    <div class="main pusher" style="height:60%; margin-top:100px">
+        <div class="ui container main Site-content">
             @RenderBody()
         </div>
      
     </div>
     <!--footer section start-->
-    <footer>
-        <div class="ui vertical bottom fixed footer segment">
+    <footer class="ui basic footer segment">
+        <div class="ui vertical bottom footer segment">
             <div class="ui container">
                 <div class="ui stackable divided equal height stackable grid">
                     <div class="seven wide column">
